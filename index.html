@@ -48,7 +48,6 @@
 <style>
   /* ---------- RESET CROSS-BROWSER ---------- */
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-  /* Correction pour les anciens navigateurs (UC Browser, Maxthon) */
   article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; }
 
   :root{
@@ -96,7 +95,7 @@
   a:hover{color:var(--red)}
   .container{max-width:var(--max);margin:0 auto;padding:0 20px}
 
-  /* ---------- HEADER (Compatible Safari, Samsung Internet, Edge) ---------- */
+  /* ---------- HEADER ---------- */
   .site-header{
     position:-webkit-sticky; position:sticky; top:0; z-index:100;
     background:var(--glass); 
@@ -207,7 +206,6 @@
   }
   .section-head p{color:var(--text-muted);margin-top:12px;font-size:1.1rem}
 
-  /* Animation (Sécurisée pour UC Browser / Maxthon) */
   .reveal { 
     opacity: 0; 
     -webkit-transform: translateY(30px); 
@@ -263,7 +261,7 @@
   }
   .copy-btn:hover{background:var(--red); color:white; border-color:var(--red)}
 
-  /* ---------- CONTACT CARDS ---------- */
+  /* ---------- CONTACT CARDS & FORM ---------- */
   .contact-grid{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
   .contact-card{
     display:block; position:relative; text-decoration:none;
@@ -285,6 +283,10 @@
   .contact-card.whatsapp p{color:#25D366}
   .contact-card.facebook p{color:#1877F2}
   .contact-card.gmail p{color:#EA4335}
+
+  .contact-form input:focus, .contact-form textarea:focus {
+    outline: none; border-color: var(--red) !important; box-shadow: 0 0 0 3px rgba(230,57,70,0.15);
+  }
 
   /* ---------- BOUTONS FLOTTANTS ---------- */
   .floating-wa {
@@ -381,4 +383,4 @@
     .search-box input:focus{width:180px}
     .hero{padding:90px 20px 70px}
     .section{padding:60px 0}
-    .floating-wa { width: 55px; height: 5
+    .floating-wa { width: 55px; height:
