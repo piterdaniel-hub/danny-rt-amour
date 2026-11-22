@@ -1,4 +1,25 @@
+# ==========================================
+# Fichier robots.txt pour DANNY RT AMOUR
+# Optimisé pour le SEO et la protection du contenu
+# ==========================================
+
+# Autoriser tous les moteurs de recherche classiques (Google, Bing, etc.)
 User-agent: *
 Allow: /
 
+# Sécurité : Interdire l'indexation des dossiers système de GitHub
+Disallow: /.git/
+Disallow: /404.html
+
+# Protection contre le scraping sauvage par les Intelligences Artificielles
+User-agent: GPTBot
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+# Déclaration du plan du site (Sitemap) pour Google
 Sitemap: https://piterdaniel-hub.github.io/danny-rt-amour/sitemap.xml
