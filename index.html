@@ -2,20 +2,28 @@
 <html lang="fr" data-theme="dark">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Balise de compatibilité maximale pour les anciens navigateurs (IE, Edge legacy) -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+
 <title>DANNY RT AMOUR — L'amour intelligent, le respect et la maturité</title>
 <meta name="description" content="DANNY RT AMOUR : Apprenez à construire une relation saine. Conseils en psychologie, vie de couple, romantisme et fidélité.">
 <meta name="author" content="Danny RT">
 <meta name="theme-color" content="#0d0d0d">
 
-<!-- SEO Avancé : Balises Open Graph -->
+<!-- SEO Avancé : Balises Open Graph (Facebook, WhatsApp, Twitter, LinkedIn) -->
 <meta property="og:title" content="DANNY RT AMOUR">
 <meta property="og:description" content="L'amour intelligent, le respect et la maturité.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://piterdaniel-hub.github.io/danny-rt-amour/">
 <meta property="og:image" content="https://piterdaniel-hub.github.io/danny-rt-amour/icon.svg">
 
-<!-- SEO Avancé : Schema.org (JSON-LD) pour Google -->
+<!-- Balises spécifiques pour Safari / iOS -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Danny RT Amour">
+
+<!-- SEO Avancé : Schema.org (JSON-LD) -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -38,8 +46,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-  /* ---------- RESET & VARIABLES ---------- */
+  /* ---------- RESET CROSS-BROWSER ---------- */
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  /* Correction pour les anciens navigateurs (UC Browser, Maxthon) */
+  article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; }
 
   :root{
     --bg:#0a0a0a; --bg-alt:#111111; --surface:rgba(27, 27, 27, 0.6);
@@ -57,18 +67,23 @@
     --glass: rgba(255, 255, 255, 0.85);
   }
 
-  /* Scrollbar Personnalisée (Design Pro) */
+  /* Scrollbar (Chrome, Edge, Safari) */
   ::-webkit-scrollbar { width: 8px; }
   ::-webkit-scrollbar-track { background: var(--bg); }
   ::-webkit-scrollbar-thumb { background: var(--red); border-radius: 10px; }
   ::-webkit-scrollbar-thumb:hover { background: var(--pink); }
+  
+  /* Scrollbar (Firefox) */
+  html { scrollbar-color: var(--red) var(--bg); scrollbar-width: thin; scroll-behavior: smooth; }
+  
   ::selection { background: var(--red); color: white; }
+  ::-moz-selection { background: var(--red); color: white; }
 
-  html{scroll-behavior:smooth}
   body{
-    font-family:'Inter',system-ui,sans-serif;
+    font-family:'Inter',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
     background:var(--bg); color:var(--text);
-    line-height:1.65; -webkit-font-smoothing:antialiased;
+    line-height:1.65; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+    -webkit-transition:background .4s, color .4s;
     transition:background .4s, color .4s;
     overflow-x: hidden;
   }
@@ -77,53 +92,62 @@
   h1{font-size:clamp(2.2rem,5vw,3.8rem);letter-spacing:-1px}
   h2{font-size:clamp(1.8rem,3.5vw,2.6rem);margin-bottom:8px}
   h3{font-size:1.2rem;margin-bottom:10px;color:var(--pink)}
-  a{color:var(--pink);text-decoration:none;transition:.3s}
+  a{color:var(--pink);text-decoration:none;-webkit-transition:.3s;transition:.3s}
   a:hover{color:var(--red)}
   .container{max-width:var(--max);margin:0 auto;padding:0 20px}
 
-  /* ---------- HEADER GLASSMORPHISM ---------- */
+  /* ---------- HEADER (Compatible Safari, Samsung Internet, Edge) ---------- */
   .site-header{
-    position:sticky; top:0; z-index:100;
-    background:var(--glass); backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px);
+    position:-webkit-sticky; position:sticky; top:0; z-index:100;
+    background:var(--glass); 
+    -webkit-backdrop-filter:blur(16px); backdrop-filter:blur(16px);
     border-bottom:1px solid var(--border);
-    transition: all 0.3s ease;
+    -webkit-transition: all 0.3s ease; transition: all 0.3s ease;
   }
   .header-inner{
-    position:relative; display:flex; align-items:center; gap:14px;
+    position:relative; display:-webkit-box; display:-ms-flexbox; display:flex; 
+    -webkit-box-align:center; -ms-flex-align:center; align-items:center; gap:14px;
     padding:14px 20px; max-width:var(--max); margin:0 auto;
   }
   .logo{
     font-family:'Playfair Display',serif; font-weight:800;
     font-size:1.2rem; color:var(--text); white-space:nowrap; letter-spacing:.5px;
-    display:flex; align-items:center; gap:8px;
+    display:-webkit-box; display:-ms-flexbox; display:flex; 
+    -webkit-box-align:center; -ms-flex-align:center; align-items:center; gap:8px;
   }
   .logo span{color:var(--red); text-shadow: 0 0 10px rgba(230,57,70,0.4);}
   
-  .nav{display:flex;gap:5px;margin-left:auto;flex-wrap:wrap}
+  .nav{display:-webkit-box; display:-ms-flexbox; display:flex; gap:5px; margin-left:auto; flex-wrap:wrap}
   .nav a{
     color:var(--text-muted); font-size:.85rem; padding:8px 14px;
-    border-radius:10px; transition:.3s; font-weight:500;
+    border-radius:10px; -webkit-transition:.3s; transition:.3s; font-weight:500;
   }
   .nav a:hover, .nav a.active{color:var(--text); background:var(--surface); box-shadow:inset 0 0 0 1px var(--border)}
 
-  .header-actions{display:flex;gap:10px;align-items:center}
+  .header-actions{display:-webkit-box; display:-ms-flexbox; display:flex; gap:10px; align-items:center}
   .search-box{position:relative}
   .search-box input{
     background:var(--surface); border:1px solid var(--border); color:var(--text);
     padding:10px 14px 10px 36px; border-radius:12px; font-size:.85rem;
-    width:180px; transition:all .3s; font-family:inherit;
+    width:180px; -webkit-transition:all .3s; transition:all .3s; font-family:inherit;
+    -webkit-appearance:none; -moz-appearance:none; appearance:none;
   }
   .search-box input:focus{outline:none;border-color:var(--red);width:240px;box-shadow:0 0 0 3px rgba(230,57,70,0.15)}
   .search-box::before{
     content:"🔍"; position:absolute; left:12px; top:50%;
-    transform:translateY(-50%); font-size:.8rem; opacity:.6; pointer-events:none;
+    -webkit-transform:translateY(-50%); -ms-transform:translateY(-50%); transform:translateY(-50%); 
+    font-size:.8rem; opacity:.6; pointer-events:none;
   }
   .icon-btn{
     background:var(--surface); border:1px solid var(--border); color:var(--text);
     width:42px; height:42px; border-radius:12px; cursor:pointer;
-    font-size:1.1rem; display:grid; place-items:center; transition:.3s;
+    font-size:1.1rem; display:-webkit-box; display:-ms-flexbox; display:flex; 
+    -webkit-box-pack:center; -ms-flex-pack:center; justify-content:center; 
+    -webkit-box-align:center; -ms-flex-align:center; align-items:center; 
+    -webkit-transition:.3s; transition:.3s;
+    -webkit-appearance:none; -moz-appearance:none; appearance:none;
   }
-  .icon-btn:hover{border-color:var(--red); transform:translateY(-2px); box-shadow:0 4px 12px rgba(230,57,70,0.2)}
+  .icon-btn:hover{border-color:var(--red); -webkit-transform:translateY(-2px); -ms-transform:translateY(-2px); transform:translateY(-2px); box-shadow:0 4px 12px rgba(230,57,70,0.2)}
   .menu-toggle{display:none}
 
   /* ---------- HERO SECTION ---------- */
@@ -145,30 +169,32 @@
     background:rgba(230,57,70,0.3); z-index:-1; border-radius:4px;
   }
   .hero p{max-width:650px;margin:0 auto 40px;color:var(--text-muted);font-size:1.15rem}
-  .hero-buttons{display:flex;gap:15px;justify-content:center;flex-wrap:wrap}
+  .hero-buttons{display:-webkit-box; display:-ms-flexbox; display:flex; gap:15px; -webkit-box-pack:center; -ms-flex-pack:center; justify-content:center; flex-wrap:wrap}
 
   /* ---------- BOUTONS PREMIUM ---------- */
   .btn{
     display:inline-block; padding:14px 32px; border-radius:14px;
-    font-weight:600; font-size:1rem; transition:.3s;
+    font-weight:600; font-size:1rem; -webkit-transition:.3s; transition:.3s;
     border:1px solid transparent; cursor:pointer; font-family:inherit;
-    letter-spacing:0.5px;
+    letter-spacing:0.5px; -webkit-appearance:none; -moz-appearance:none; appearance:none;
+    text-align:center;
   }
   .btn-primary{
     background:linear-gradient(135deg, var(--red), var(--red-dark)); color:#fff;
     box-shadow:0 6px 20px rgba(230,57,70,0.3);
   }
-  .btn-primary:hover{transform:translateY(-3px);box-shadow:0 10px 25px rgba(230,57,70,0.5);color:#fff}
-  .btn-outline{background:transparent;color:var(--text);border:1px solid var(--border);backdrop-filter:blur(10px)}
-  .btn-outline:hover{border-color:var(--red);color:var(--pink);background:rgba(230,57,70,0.05);transform:translateY(-3px)}
+  .btn-primary:hover{-webkit-transform:translateY(-3px); -ms-transform:translateY(-3px); transform:translateY(-3px); box-shadow:0 10px 25px rgba(230,57,70,0.5); color:#fff}
+  .btn-outline{background:transparent;color:var(--text);border:1px solid var(--border);-webkit-backdrop-filter:blur(10px); backdrop-filter:blur(10px);}
+  .btn-outline:hover{border-color:var(--red);color:var(--pink);background:rgba(230,57,70,0.05);-webkit-transform:translateY(-3px); -ms-transform:translateY(-3px); transform:translateY(-3px)}
 
   /* ---------- BANDE COULEURS ---------- */
   .values-strip{border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--bg-alt)}
   .values-inner{
-    display:flex;justify-content:center;gap:40px;padding:20px;flex-wrap:wrap;
-    font-size:.8rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:2px;font-weight:700;
+    display:-webkit-box; display:-ms-flexbox; display:flex; -webkit-box-pack:center; -ms-flex-pack:center; justify-content:center; 
+    gap:40px; padding:20px; flex-wrap:wrap;
+    font-size:.8rem; color:var(--text-muted); text-transform:uppercase; letter-spacing:2px; font-weight:700;
   }
-  .values-inner span{display:flex;align-items:center;gap:10px}
+  .values-inner span{display:-webkit-box; display:-ms-flexbox; display:flex; -webkit-box-align:center; -ms-flex-align:center; align-items:center; gap:10px}
   .values-inner i{width:12px;height:12px;border-radius:50%;display:inline-block;box-shadow:0 0 10px currentColor}
 
   /* ---------- SECTIONS & ANIMATIONS ---------- */
@@ -181,27 +207,35 @@
   }
   .section-head p{color:var(--text-muted);margin-top:12px;font-size:1.1rem}
 
-  /* Animation Scroll Reveal */
-  .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.5, 0, 0, 1); }
-  .reveal.active { opacity: 1; transform: translateY(0); }
+  /* Animation (Sécurisée pour UC Browser / Maxthon) */
+  .reveal { 
+    opacity: 0; 
+    -webkit-transform: translateY(30px); 
+    -ms-transform: translateY(30px); 
+    transform: translateY(30px); 
+    -webkit-transition: all 0.8s cubic-bezier(0.5, 0, 0, 1); 
+    transition: all 0.8s cubic-bezier(0.5, 0, 0, 1); 
+  }
+  .reveal.active { opacity: 1; -webkit-transform: translateY(0); -ms-transform: translateY(0); transform: translateY(0); }
 
   .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}
   
-  /* CARTES PREMIUM (Glow Effect) */
+  /* CARTES PREMIUM */
   .card{
     background:var(--surface); border:1px solid var(--border);
-    border-radius:var(--radius); padding:30px 26px; transition:.4s; position:relative;
-    overflow:hidden; backdrop-filter:blur(10px);
+    border-radius:var(--radius); padding:30px 26px; 
+    -webkit-transition:.4s; transition:.4s; position:relative;
+    overflow:hidden; -webkit-backdrop-filter:blur(10px); backdrop-filter:blur(10px);
   }
   .card::before{
     content:''; position:absolute; top:0; left:0; width:100%; height:100%;
     background:radial-gradient(circle at top left, rgba(230,57,70,0.1), transparent 50%);
-    opacity:0; transition:.4s; z-index:0;
+    opacity:0; -webkit-transition:.4s; transition:.4s; z-index:0;
   }
-  .card:hover{transform:translateY(-6px);border-color:rgba(230,57,70,0.4);box-shadow:var(--shadow)}
+  .card:hover{-webkit-transform:translateY(-6px); -ms-transform:translateY(-6px); transform:translateY(-6px); border-color:rgba(230,57,70,0.4); box-shadow:var(--shadow)}
   .card:hover::before{opacity:1}
   .card > * { position:relative; z-index:1; }
-  .card .card-icon{font-size:2.2rem;margin-bottom:16px;display:block; filter:drop-shadow(0 4px 6px rgba(0,0,0,0.3))}
+  .card .card-icon{font-size:2.2rem;margin-bottom:16px;display:block; -webkit-filter:drop-shadow(0 4px 6px rgba(0,0,0,0.3)); filter:drop-shadow(0 4px 6px rgba(0,0,0,0.3))}
   .card p{color:var(--text-muted);font-size:.95rem;line-height:1.7}
 
   /* ---------- CITATIONS ---------- */
@@ -210,10 +244,11 @@
     background:var(--surface); border-left:4px solid var(--red);
     border-radius:var(--radius); padding:30px; position:relative;
     font-family:'Playfair Display',serif; font-style:italic;
-    font-size:1.15rem; line-height:1.7; backdrop-filter:blur(10px);
-    transition:.3s;
+    font-size:1.15rem; line-height:1.7; 
+    -webkit-backdrop-filter:blur(10px); backdrop-filter:blur(10px);
+    -webkit-transition:.3s; transition:.3s;
   }
-  .quote:hover{transform:translateY(-3px); border-left-color:var(--pink); box-shadow:var(--shadow)}
+  .quote:hover{-webkit-transform:translateY(-3px); -ms-transform:translateY(-3px); transform:translateY(-3px); border-left-color:var(--pink); box-shadow:var(--shadow)}
   .quote-author{
     display:block; margin-top:16px; font-family:'Inter',sans-serif;
     font-style:normal; font-size:.85rem; color:var(--pink); font-weight:700;
@@ -221,8 +256,10 @@
   .copy-btn {
     position:absolute; top:20px; right:20px; background:rgba(255,255,255,0.05);
     border:1px solid var(--border); color:var(--text-muted); border-radius:8px;
-    padding:6px 10px; font-size:.75rem; cursor:pointer; transition:.2s; font-family:'Inter',sans-serif;
-    display:flex; align-items:center; gap:5px;
+    padding:6px 10px; font-size:.75rem; cursor:pointer; 
+    -webkit-transition:.2s; transition:.2s; font-family:'Inter',sans-serif;
+    display:-webkit-box; display:-ms-flexbox; display:flex; -webkit-box-align:center; -ms-flex-align:center; align-items:center; gap:5px;
+    -webkit-appearance:none; -moz-appearance:none; appearance:none;
   }
   .copy-btn:hover{background:var(--red); color:white; border-color:var(--red)}
 
@@ -232,14 +269,16 @@
     display:block; position:relative; text-decoration:none;
     color:var(--text); cursor:pointer; border:1px solid var(--border);
     background:var(--surface); padding:30px 24px; border-radius:var(--radius);
-    transition:.3s; backdrop-filter:blur(10px); overflow:hidden;
+    -webkit-transition:.3s; transition:.3s; 
+    -webkit-backdrop-filter:blur(10px); backdrop-filter:blur(10px);
+    overflow:hidden;
   }
   .contact-card::after{
     content:"→"; position:absolute; top:24px; right:24px;
-    color:var(--red); font-size:1.4rem; transition:.3s;
+    color:var(--red); font-size:1.4rem; -webkit-transition:.3s; transition:.3s;
   }
-  .contact-card:hover::after{transform:translateX(8px)}
-  .contact-card:hover{border-color:var(--red);transform:translateY(-5px);box-shadow:var(--shadow)}
+  .contact-card:hover::after{-webkit-transform:translateX(8px); -ms-transform:translateX(8px); transform:translateX(8px)}
+  .contact-card:hover{border-color:var(--red); -webkit-transform:translateY(-5px); -ms-transform:translateY(-5px); transform:translateY(-5px); box-shadow:var(--shadow)}
   .contact-card .card-icon{font-size:2.5rem;margin-bottom:12px}
   .contact-card h3{margin-bottom:6px;color:var(--text)}
   .contact-card p{color:var(--pink);font-size:.95rem;word-break:break-word;font-weight:600}
@@ -252,13 +291,21 @@
     position: fixed; bottom:30px; right:30px; z-index:99;
     background:linear-gradient(135deg, #25D366, #128C7E); color: white;
     width: 65px; height: 65px; border-radius: 50%;
-    display: flex; justify-content: center; align-items: center;
+    display:-webkit-box; display:-ms-flexbox; display:flex; 
+    -webkit-box-pack:center; -ms-flex-pack:center; justify-content:center; 
+    -webkit-box-align:center; -ms-flex-align:center; align-items:center;
     font-size: 35px; box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+    -webkit-transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    animation: pulse 2s infinite;
+    -webkit-animation: pulse 2s infinite; animation: pulse 2s infinite;
   }
-  .floating-wa:hover {transform: scale(1.1) rotate(10deg); color: white;}
+  .floating-wa:hover{-webkit-transform: scale(1.1) rotate(10deg); -ms-transform: scale(1.1) rotate(10deg); transform: scale(1.1) rotate(10deg); color: white;}
   
+  @-webkit-keyframes pulse {
+    0% { -webkit-box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+    70% { -webkit-box-shadow: 0 0 0 20px rgba(37, 211, 102, 0); }
+    100% { -webkit-box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+  }
   @keyframes pulse {
     0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
     70% { box-shadow: 0 0 0 20px rgba(37, 211, 102, 0); }
@@ -268,22 +315,36 @@
   .back-to-top {
     position: fixed; bottom: 110px; right: 30px; z-index: 99;
     background: var(--surface); border: 1px solid var(--border); color: var(--text);
-    width: 50px; height: 50px; border-radius: 50%; display: flex;
-    justify-content: center; align-items: center; font-size: 20px;
-    cursor: pointer; opacity: 0; visibility: hidden; transition: all 0.3s;
-    backdrop-filter: blur(10px);
+    width: 50px; height: 50px; border-radius: 50%; 
+    display:-webkit-box; display:-ms-flexbox; display:flex; 
+    -webkit-box-pack:center; -ms-flex-pack:center; justify-content:center; 
+    -webkit-box-align:center; -ms-flex-align:center; align-items:center; 
+    font-size: 20px; cursor: pointer; opacity: 0; visibility: hidden; 
+    -webkit-transition: all 0.3s; transition: all 0.3s;
+    -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
   }
   .back-to-top.show { opacity: 1; visibility: visible; }
-  .back-to-top:hover { background: var(--red); color: white; border-color: var(--red); transform: translateY(-3px); }
+  .back-to-top:hover { background: var(--red); color: white; border-color: var(--red); -webkit-transform: translateY(-3px); -ms-transform: translateY(-3px); transform: translateY(-3px); }
 
   /* ---------- TOAST NOTIFICATION ---------- */
   #toast {
-    position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(100px);
+    position: fixed; bottom: 30px; left: 50%; 
+    -webkit-transform: translateX(-50%) translateY(100px); 
+    -ms-transform: translateX(-50%) translateY(100px); 
+    transform: translateX(-50%) translateY(100px);
     background: var(--red); color: white; padding: 12px 24px; border-radius: 30px;
     font-weight: 600; font-size: 0.9rem; box-shadow: 0 10px 30px rgba(230,57,70,0.4);
-    opacity: 0; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); z-index: 1000;
+    opacity: 0; 
+    -webkit-transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+    z-index: 1000;
   }
-  #toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
+  #toast.show { 
+    -webkit-transform: translateX(-50%) translateY(0); 
+    -ms-transform: translateX(-50%) translateY(0); 
+    transform: translateX(-50%) translateY(0); 
+    opacity: 1; 
+  }
 
   /* ---------- FOOTER ---------- */
   footer{
@@ -292,139 +353,32 @@
     background:var(--bg-alt);
   }
   footer strong{color:var(--red); font-family:'Playfair Display',serif; font-size:1.2rem; letter-spacing:1px;}
-  .footer-social{display:flex; justify-content:center; gap:16px; margin:24px 0}
+  .footer-social{display:-webkit-box; display:-ms-flexbox; display:flex; -webkit-box-pack:center; -ms-flex-pack:center; justify-content:center; gap:16px; margin:24px 0}
   .footer-social a{
-    display:grid; place-items:center; width:48px; height:48px;
-    border:1px solid var(--border); border-radius:50%;
-    font-size:1.2rem; transition:.3s; color:var(--text); background:var(--surface);
+    display:-webkit-box; display:-ms-flexbox; display:flex; 
+    -webkit-box-pack:center; -ms-flex-pack:center; justify-content:center; 
+    -webkit-box-align:center; -ms-flex-align:center; align-items:center; 
+    width:48px; height:48px; border:1px solid var(--border); border-radius:50%;
+    font-size:1.2rem; -webkit-transition:.3s; transition:.3s; color:var(--text); background:var(--surface);
   }
-  .footer-social a:hover{border-color:var(--red); background:var(--red); color:white; transform:translateY(-4px)}
+  .footer-social a:hover{border-color:var(--red); background:var(--red); color:white; -webkit-transform:translateY(-4px); -ms-transform:translateY(-4px); transform:translateY(-4px)}
 
   #noResults{display:none; text-align:center; padding:80px 20px; color:var(--text-muted); font-size:1.1rem}
   #noResults strong{color:var(--red)}
 
-  /* ---------- RESPONSIVE ---------- */
+  /* ---------- MEDIA QUERIES (Responsive Mobile) ---------- */
   @media (max-width:950px){
     .nav{
       display:none; position:absolute; top:100%; left:0; right:0;
-      flex-direction:column; background:var(--bg); border-bottom:1px solid var(--border);
+      -webkit-box-orient:vertical; -webkit-box-direction:normal; -ms-flex-direction:column; flex-direction:column; 
+      background:var(--bg); border-bottom:1px solid var(--border);
       padding:16px 20px; gap:6px; box-shadow:0 10px 20px rgba(0,0,0,0.5);
     }
-    .nav.open{display:flex}
+    .nav.open{display:-webkit-box; display:-ms-flexbox; display:flex}
     .nav a{padding:12px; font-size:1rem;}
-    .menu-toggle{display:grid}
+    .menu-toggle{display:-webkit-box; display:-ms-flexbox; display:flex}
     .search-box input{width:140px}
     .search-box input:focus{width:180px}
     .hero{padding:90px 20px 70px}
     .section{padding:60px 0}
-    .floating-wa { width: 55px; height: 55px; font-size: 28px; bottom: 20px; right: 20px; }
-    .back-to-top { bottom: 90px; right: 22.5px; width: 45px; height: 45px; }
-  }
-  @media (max-width:480px){
-    .search-box input{width:110px; padding-left:30px; font-size:.8rem}
-    .search-box input:focus{width:140px}
-    .logo{font-size:1.05rem}
-    .icon-btn{width:38px;height:38px}
-  }
-</style>
-</head>
-<body>
-
-<!-- NOTIFICATION TOAST -->
-<div id="toast">Citation copiée !</div>
-
-<!-- BOUTONS FLOTTANTS -->
-<a href="https://wa.me/243898560667?text=Bonjour%20Danny%20RT%20Amour%2C%20je%20viens%20de%20ton%20site%20!" class="floating-wa" target="_blank" rel="noopener noreferrer" aria-label="Contactez-moi sur WhatsApp">💬</a>
-<button class="back-to-top" id="backToTop" aria-label="Retour en haut">↑</button>
-
-<!-- HEADER -->
-<header class="site-header">
-  <div class="header-inner">
-    <a href="#accueil" class="logo">❤️ DANNY <span>RT</span> AMOUR</a>
-    <nav class="nav" id="nav">
-      <a href="#conseils">Conseils</a>
-      <a href="#psychologie">Psychologie</a>
-      <a href="#couple">Couple</a>
-      <a href="#romantisme">Romantisme</a>
-      <a href="#fidelite">Fidélité</a>
-      <a href="#citations">Citations</a>
-      <a href="#contact">Contact</a>
-    </nav>
-    <div class="header-actions">
-      <div class="search-box">
-        <input type="text" id="searchInput" placeholder="Rechercher…" aria-label="Rechercher">
-      </div>
-      <button class="icon-btn" id="themeToggle" aria-label="Changer de thème">🌙</button>
-      <button class="icon-btn menu-toggle" id="menuToggle" aria-label="Menu">☰</button>
-    </div>
-  </div>
-</header>
-
-<main>
-  <!-- HERO -->
-  <section class="hero" id="accueil">
-    <span class="eyebrow reveal">✨ Danny RT Amour</span>
-    <h1 class="reveal">L'amour n'est pas une <em>faiblesse</em>,<br>c'est une responsabilité.</h1>
-    <p class="reveal">Un espace personnel et éducatif pour apprendre à aimer avec intelligence, respect et maturité. Conseils, psychologie, fidélité et romantisme.</p>
-    <div class="hero-buttons reveal">
-      <a href="#conseils" class="btn btn-primary">Découvrir les conseils</a>
-      <a href="#contact" class="btn btn-outline">Me contacter</a>
-    </div>
-  </section>
-
-  <!-- BANDE COULEURS -->
-  <div class="values-strip reveal">
-    <div class="values-inner">
-      <span><i style="background:#0a0a0a;color:#0a0a0a;border:1px solid #444"></i> Élégance</span>
-      <span><i style="background:#e63946;color:#e63946"></i> Amour</span>
-      <span><i style="background:#f4f4f4;color:#f4f4f4;border:1px solid #444"></i> Simplicité</span>
-      <span><i style="background:#ff8fa3;color:#ff8fa3"></i> Romantisme</span>
-    </div>
-  </div>
-
-  <!-- CONSEILS -->
-  <section class="section" id="conseils">
-    <div class="container">
-      <div class="section-head reveal">
-        <span class="tag">Conseils amoureux</span>
-        <h2>Apprendre à aimer, un jour à la fois</h2>
-        <p>Des principes simples, profonds et concrets pour bâtir une relation saine.</p>
-      </div>
-      <div class="grid">
-        <div class="card reveal">
-          <span class="card-icon">🎧</span>
-          <h3>Écouter avant de répondre</h3>
-          <p>Dans une dispute, la première victoire n'est pas d'avoir raison, mais d'avoir compris. Laisse l'autre finir sa phrase, respire, reformule ce qu'il vient de dire. 80 % des conflits se calment quand on se sent écouté.</p>
-        </div>
-        <div class="card reveal" style="transition-delay: 0.1s;">
-          <span class="card-icon">🤝</span>
-          <h3>La confiance se construit lentement</h3>
-          <p>La confiance ne se décrète pas, elle se mérite jour après jour. Elle se gagne par de petites promesses tenues, pas par de grands serments. Sois régulier, sois honnête, sois présent.</p>
-        </div>
-        <div class="card reveal" style="transition-delay: 0.2s;">
-          <span class="card-icon">🗣️</span>
-          <h3>Choisis tes mots, pas ta colère</h3>
-          <p>La colère est légitime, mais elle ne doit jamais devenir une arme. Dis « je me sens blessé » plutôt que « tu es méchant ». Le premier ouvre une porte, le second la ferme.</p>
-        </div>
-        <div class="card reveal" style="transition-delay: 0.3s;">
-          <span class="card-icon">💬</span>
-          <h3>Le silence n'est pas une punition</h3>
-          <p>Bouder n'est pas communiquer. Si tu as besoin de temps, dis-le : « J'ai besoin d'une heure, mais je reviens vers toi. » Un silence expliqué est un respect. Un silence imposé est une blessure.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PSYCHOLOGIE -->
-  <section class="section section-alt" id="psychologie">
-    <div class="container">
-      <div class="section-head reveal">
-        <span class="tag">Psychologie</span>
-        <h2>Comprendre les émotions humaines</h2>
-        <p>On ne peut pas aimer quelqu'un qu'on ne comprend pas — ni soi-même.</p>
-      </div>
-      <div class="grid">
-        <div class="card reveal">
-          <span class="card-icon">🧠</span>
-          <h3>Comprendre ses émotions</h3>
-          <p>Une émotion n'est ni bonne ni mauvaise : c'est une information. La colère signale une limite franchie. 
+    .floating-wa { width: 55px; height: 5
