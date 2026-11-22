@@ -6,7 +6,6 @@
 <title>DANNY RT AMOUR — L'amour intelligent, le respect et la maturité</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
 <style>
-  /* RESET ULTRA-STABLE (Sans aucune animation qui fait planter) */
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { background-color: #0a0a0a; color: #f4f4f4; font-family: 'Inter', sans-serif; line-height: 1.6; }
   h1, h2, h3 { font-family: 'Playfair Display', serif; color: #fff; }
@@ -68,7 +67,7 @@
   .contact-btn { background-color: #1a1a1a; border: 1px solid #333; padding: 15px 25px; border-radius: 8px; color: #fff; font-weight: 600; display: flex; align-items: center; gap: 10px; }
   .contact-btn:hover { border-color: #e63946; }
 
-  /* MODAL (Fenêtre de lecture) */
+  /* MODAL */
   .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); z-index: 1000; display: none; justify-content: center; align-items: center; padding: 20px; }
   .modal-overlay.active { display: flex; }
   .modal-content { background: #111; border: 1px solid #333; border-radius: 12px; width: 100%; max-width: 700px; max-height: 90vh; overflow-y: auto; padding: 30px; position: relative; }
@@ -110,7 +109,6 @@
   <a href="#conseils" class="btn btn-primary">Découvrir les conseils</a>
 </section>
 
-<!-- CONSEILS -->
 <section class="section" id="conseils">
   <div class="container">
     <div class="section-head">
@@ -125,7 +123,6 @@
   </div>
 </section>
 
-<!-- BLOG (ARTICLES) -->
 <section class="section section-alt" id="blog">
   <div class="container">
     <div class="section-head">
@@ -140,7 +137,6 @@
   </div>
 </section>
 
-<!-- CITATIONS -->
 <section class="section" id="citations">
   <div class="container">
     <div class="section-head">
@@ -155,7 +151,6 @@
   </div>
 </section>
 
-<!-- CONTACT -->
 <section class="section section-alt" id="contact">
   <div class="container">
     <div class="section-head">
@@ -184,7 +179,6 @@
 
 <a href="https://wa.me/243898560667" target="_blank" class="whatsapp-float">💬</a>
 
-<!-- FENÊTRE DE LECTURE -->
 <div class="modal-overlay" id="modal">
   <div class="modal-content">
     <button class="close-modal" onclick="closeModal()">✕</button>
@@ -196,42 +190,25 @@
 
 <script>
   // ==========================================
-  // BASE DE DONNÉES DES CONSEILS (10 exemples)
+  // 1. BASE DE DONNÉES DES CONSEILS (20 conseils)
   // ==========================================
   const dataAdvices = [
-    { id: 1, cat: "Communication", titre: "Écouter avant de répondre", court: "La première victoire n'est pas d'avoir raison, mais d'avoir compris.", long: "<p>Dans une dispute, on a souvent tendance à préparer sa défense pendant que l'autre parle. C'est une erreur fatale. La première victoire n'est pas d'avoir raison, mais d'avoir compris.</p><p>Laissez l'autre finir sa phrase. Respirez. Ensuite, reformulez ce qu'il vient de dire avec vos propres mots : « Si je comprends bien, tu te sens blessé parce que... ». Vous verrez que 80% des conflits se calment instantanément quand la personne se sent réellement écoutée.</p>" },
-    { id: 2, cat: "Psychologie", titre: "Comprendre ses émotions", court: "Une émotion n'est ni bonne ni mauvaise : c'est une information.", long: "<p>La colère n'est pas 'méchante', la tristesse n'est pas 'une faiblesse'. Ce sont des signaux d'alarme. La colère signale une limite qui a été franchie. La tristesse signale un besoin de réconfort.</p><p>Au lieu de subir vos émotions, apprenez à les nommer : « Je ressens de la frustration en ce moment ». Nommer une émotion réduit immédiatement son intensité dans le cerveau. C'est la base de l'intelligence émotionnelle.</p>" },
-    { id: 3, cat: "Vie de couple", titre: "Les petites habitudes", court: "L'amour durable ne vit pas dans les grandes déclarations.", long: "<p>Les films nous font croire que l'amour se prouve avec des fleurs géantes. La réalité est différente. L'amour durable se joue dans le quotidien.</p><p>Un café préparé le matin sans qu'on l'ait demandé. Un message bienveillant à midi. Une main tenue dans la rue. C'est la répétition de ces petites attentions qui construit un socle solide sur lequel le couple peut traverser les tempêtes.</p>" },
-    { id: 4, cat: "Fidélité", titre: "La transparence totale", court: "Dire la vérité nourrit la confiance sur la durée.", long: "<p>La fidélité n'est pas seulement physique. Elle est aussi mentale et émotionnelle. Dire la vérité, ne pas cacher des choses anodines, ne pas mentir sur ses intentions, c'est ce qui crée une confiance aveugle.</p><p>La confiance met des années à se construire, mais une seconde à se briser. Si vous voulez une relation solide, soyez une personne dont la parole a une valeur absolue.</p>" },
-    { id: 5, cat: "Romantisme", titre: "Les surprises spontanées", court: "Une fleur un mardi vaut mieux qu'un bouquet le 14 février.", long: "<p>Le romantisme programmé (Saint-Valentin, anniversaires) est une obligation sociale. Le vrai romantisme est un choix spontané. Une fleur achetée un mardi après-midi, sans raison, a un impact émotionnel beaucoup plus fort.</p><p>Pourquoi ? Parce que cela prouve à l'autre qu'il était dans vos pensées de manière inattendue. Le romantisme, c'est prouver à l'autre : « Je te choisis aujourd'hui, pas parce que c'est obligé, mais parce que je t'aime ».</p>" },
-    { id: 6, cat: "Communication", titre: "Utiliser le 'Je'", court: "Dis 'je me sens blessé' plutôt que 'tu es méchant'.", long: "<p>Quand on utilise le 'Tu', on accuse. « Tu ne fais jamais d'efforts ». Le cerveau de l'autre se met immédiatement en mode défense et la conversation devient un combat.</p><p>Utilisez le 'Je'. « Je me sens seul quand on ne passe pas de temps ensemble ». Le 'Je' exprime votre ressenti sans attaquer l'autre. L'autre peut alors entendre votre souffrance au lieu de se défendre.</p>" },
-    { id: 7, cat: "Psychologie", titre: "Les 5 langages de l'amour", court: "Chacun exprime l'amour à sa manière.", long: "<p>Nous n'exprimons pas tous l'amour de la même façon. Certains offrent des cadeaux, d'autres ont besoin de temps de qualité, de paroles valorisantes, de services rendus, ou de contact physique.</p><p>Souvent, on donne ce qu'on aimerait recevoir, et on se sent mal aimé parce que l'autre donne autre chose. Parlez-en ! Découvrez le langage de votre partenaire et apprenez à parler le sien.</p>" },
-    { id: 8, cat: "Vie de couple", titre: "Gérer les désaccords", court: "Critique le comportement, jamais la personne.", long: "<p>Deux personnes qui s'aiment ne sont pas d'accord sur tout, et c'est normal. Le but n'est pas d'éviter les conflits, mais de les traverser ensemble.</p><p>Règle d'or : attaquez le problème, pas la personne. Ne dites pas « Tu es irresponsable », dites « Le fait de ne pas payer cette facture m'a fait peur, on peut en parler ? ». Vous êtes dans le même camp.</p>" },
-    { id: 9, cat: "Romantisme", titre: "L'écriture manuscrite", court: "Les mots écrits restent pour toujours.", long: "<p>À l'ère des SMS, une lettre écrite à la main a une valeur inestimable. Écrire demande du temps, de l'attention, et le résultat est physique.</p><p>Prenez une feuille. Écrivez à votre partenaire pourquoi vous l'aimez. Les mots écrits se relisent, se gardent, et peuvent durer toute une vie. C'est un cadeau immatériel mais inoubliable.</p>" },
-    { id: 10, cat: "Fidélité", titre: "Respecter les limites", court: "Parlez de vos limites avant que les problèmes n'arrivent.", long: "<p>La fidélité est un concept différent pour chacun. Pour certains, avoir un repas privé avec une personne du sexe opposé est de la tromperie. Pour d'autres, c'est anodin.</p><p>Ne devinez pas. Parlez-en à froid. Quelles sont vos limites ? Qu'est-ce qui vous blesse ? Mettre les règles au clair dès le départ évite 90% des trahisons involontaires.</p>" }
-    // POUR AJOUTER PLUS DE CONSEILS : Copie le bloc ci-dessus et modifie-le. (Attention à la virgule à la fin).
-  ];
-
-  // ==========================================
-  // BASE DE DONNÉES DES ARTICLES (4 exemples)
-  // ==========================================
-  const dataArticles = [
-    { id: 1, cat: "Psychologie", titre: "La communication non-violente", court: "Découvrez comment désamorcer une dispute en 4 étapes simples.", long: "<p>Dans toute relation, les conflits sont inévitables. La différence entre un couple qui dure et un couple qui se brise réside dans la <strong>manière</strong> de gérer ces désaccords.</p><h4>1. L'Observation</h4><p>Au lieu de dire « Tu es toujours en retard », décrivez les faits : « Quand tu es arrivé 30 minutes après l'heure... ».</p><h4>2. Le Sentiment</h4><p>Exprimez ce que vous avez ressenti : « ...je me suis senti anxieux. »</p><h4>3. Le Besoin</h4><p>« Parce que j'ai besoin de me sentir important dans notre couple. »</p><h4>4. La Demande</h4><p>Terminez par une demande claire : « Serais-tu d'accord pour m'envoyer un message si tu vois que tu vas être en retard ? »</p>" },
-    { id: 2, cat: "Communication", titre: "Pourquoi le silence fait plus de mal que les mots", court: "Le 'silent treatment' est une arme destructrice.", long: "<p>Il y a une grande différence entre prendre du recul pour se calmer et bouder pour punir l'autre.</p><h4>L'impact du silence</h4><p>Quand vous cessez de parler sans explication, votre partenaire se sent rejeté, abandonné, et développe de l'anxiété.</p><h4>La pause saine</h4><p>Dites-le : « Je suis trop en colère pour être constructif. J'ai besoin de 30 minutes. Je t'aime, et je reviens vers toi après. » Cette phrase pose une limite et rassure l'autre.</p>" },
-    { id: 3, cat: "Réflexions", titre: "L'amour de soi : la base de tout", court: "On ne peut pas donner ce qu'on n'a pas.", long: "<p>On cherche souvent en l'autre la complétude que l'on ne trouve pas en nous-mêmes. C'est le piège de la 'moitié d'orange'.</p><p>Une relation saine, ce n'est pas deux moitiés qui s'assemblent, c'est deux personnes entières qui choisissent de marcher ensemble.</p><h4>S'aimer pour mieux aimer</h4><p>Quand vous vous sentez bien seul, vous ne restez plus dans une relation toxique par peur du vide.</p>" },
-    { id: 4, cat: "Vie de couple", titre: "L'importance du temps de qualité", court: "Une heure sans écran vaut plus que 10 heures avec.", long: "<p>Vous pouvez passer une journée entière à côté de votre partenaire et pourtant ne pas être ensemble. Si vous êtes sur vos téléphones, vous n'êtes pas en connexion.</p><p>Un couple a besoin de temps de qualité : un moment sans écran, sans travail, où vous vous regardez et discutez vraiment. Une heure par semaine de vraie présence vaut plus que 10 heures de présence distraite.</p>" }
-    // POUR AJOUTER PLUS D'ARTICLES : Copie le bloc ci-dessus.
-  ];
-
-  // ==========================================
-  // BASE DE DONNÉES DES CITATIONS (8 exemples)
-  // ==========================================
-  const dataQuotes = [
-    { id: 1, cat: "Romantisme", txt: "Aimer, ce n'est pas regarder l'un vers l'autre, c'est regarder ensemble dans la même direction.", auteur: "Antoine de Saint-Exupéry" },
-    { id: 2, cat: "Amour", txt: "L'amour n'est pas une faiblesse, c'est une responsabilité.", auteur: "Danny RT" },
-    { id: 3, cat: "Fidélité", txt: "La confiance est le socle invisible sur lequel tout amour repose.", auteur: "Danny RT" },
-    { id: 4, cat: "Sagesse", txt: "On ne possède pas quelqu'un qu'on aime : on l'accompagne.", auteur: "Danny RT" },
-    { id: 5, cat: "Amour", txt: "Le plus beau cadeau que tu puisses offrir à quelqu'un, c'est ta présence.", auteur: "Danny RT" },
-    { id: 6, cat: "Romantisme", txt: "Aimer, c'est choisir chaque jour la même personne.", auteur: "Danny RT" },
-    { id: 7, cat: "Sagesse", txt: "Le temps ne guérit pas les blessures, il apprend à vivre avec.", auteur: "Danny RT" },
-    { id: 8, cat: "Rom
+    { id: 1, cat: "Communication", titre: "Écouter avant de répondre", court: "La première victoire n'est pas d'avoir raison, mais d'avoir compris.", long: `<p>Dans une dispute, on a souvent tendance à préparer sa défense pendant que l'autre parle. C'est une erreur fatale. La première victoire n'est pas d'avoir raison, mais d'avoir compris.</p><p>Laissez l'autre finir sa phrase. Respirez. Ensuite, reformulez ce qu'il vient de dire avec vos propres mots : « Si je comprends bien, tu te sens blessé parce que... ». Vous verrez que 80% des conflits se calment instantanément quand la personne se sent réellement écoutée.</p>` },
+    { id: 2, cat: "Psychologie", titre: "Comprendre ses émotions", court: "Une émotion n'est ni bonne ni mauvaise : c'est une information.", long: `<p>La colère n'est pas 'méchante', la tristesse n'est pas 'une faiblesse'. Ce sont des signaux d'alarme. La colère signale une limite qui a été franchie. La tristesse signale un besoin de réconfort.</p><p>Au lieu de subir vos émotions, apprenez à les nommer : « Je ressens de la frustration en ce moment ». Nommer une émotion réduit immédiatement son intensité dans le cerveau. C'est la base de l'intelligence émotionnelle.</p>` },
+    { id: 3, cat: "Vie de couple", titre: "Les petites habitudes", court: "L'amour durable ne vit pas dans les grandes déclarations.", long: `<p>Les films nous font croire que l'amour se prouve avec des fleurs géantes. La réalité est différente. L'amour durable se joue dans le quotidien.</p><p>Un café préparé le matin sans qu'on l'ait demandé. Un message bienveillant à midi. Une main tenue dans la rue. C'est la répétition de ces petites attentions qui construit un socle solide sur lequel le couple peut traverser les tempêtes.</p>` },
+    { id: 4, cat: "Fidélité", titre: "La transparence totale", court: "Dire la vérité nourrit la confiance sur la durée.", long: `<p>La fidélité n'est pas seulement physique. Elle est aussi mentale et émotionnelle. Dire la vérité, ne pas cacher des choses anodines, ne pas mentir sur ses intentions, c'est ce qui crée une confiance aveugle.</p><p>La confiance met des années à se construire, mais une seconde à se briser. Si vous voulez une relation solide, soyez une personne dont la parole a une valeur absolue.</p>` },
+    { id: 5, cat: "Romantisme", titre: "Les surprises spontanées", court: "Une fleur un mardi vaut mieux qu'un bouquet le 14 février.", long: `<p>Le romantisme programmé (Saint-Valentin, anniversaires) est une obligation sociale. Le vrai romantisme est un choix spontané. Une fleur achetée un mardi après-midi, sans raison, a un impact émotionnel beaucoup plus fort.</p><p>Pourquoi ? Parce que cela prouve à l'autre qu'il était dans vos pensées de manière inattendue. Le romantisme, c'est prouver à l'autre : « Je te choisis aujourd'hui, pas parce que c'est obligé, mais parce que je t'aime ».</p>` },
+    { id: 6, cat: "Communication", titre: "Utiliser le 'Je'", court: "Dis 'je me sens blessé' plutôt que 'tu es méchant'.", long: `<p>Quand on utilise le 'Tu', on accuse. « Tu ne fais jamais d'efforts ». Le cerveau de l'autre se met immédiatement en mode défense et la conversation devient un combat.</p><p>Utilisez le 'Je'. « Je me sens seul quand on ne passe pas de temps ensemble ». Le 'Je' exprime votre ressenti sans attaquer l'autre. L'autre peut alors entendre votre souffrance au lieu de se défendre.</p>` },
+    { id: 7, cat: "Psychologie", titre: "Les 5 langages de l'amour", court: "Chacun exprime l'amour à sa manière.", long: `<p>Nous n'exprimons pas tous l'amour de la même façon. Certains offrent des cadeaux, d'autres ont besoin de temps de qualité, de paroles valorisantes, de services rendus, ou de contact physique.</p><p>Souvent, on donne ce qu'on aimerait recevoir, et on se sent mal aimé parce que l'autre donne autre chose. Parlez-en ! Découvrez le langage de votre partenaire et apprenez à parler le sien.</p>` },
+    { id: 8, cat: "Vie de couple", titre: "Gérer les désaccords", court: "Critique le comportement, jamais la personne.", long: `<p>Deux personnes qui s'aiment ne sont pas d'accord sur tout, et c'est normal. Le but n'est pas d'éviter les conflits, mais de les traverser ensemble.</p><p>Règle d'or : attaquez le problème, pas la personne. Ne dites pas « Tu es irresponsable », dites « Le fait de ne pas payer cette facture m'a fait peur, on peut en parler ? ». Vous êtes dans le même camp.</p>` },
+    { id: 9, cat: "Romantisme", titre: "L'écriture manuscrite", court: "Les mots écrits restent pour toujours.", long: `<p>À l'ère des SMS, une lettre écrite à la main a une valeur inestimable. Écrire demande du temps, de l'attention, et le résultat est physique.</p><p>Prenez une feuille. Écrivez à votre partenaire pourquoi vous l'aimez. Les mots écrits se relisent, se gardent, et peuvent durer toute une vie. C'est un cadeau immatériel mais inoubliable.</p>` },
+    { id: 10, cat: "Fidélité", titre: "Respecter les limites", court: "Parlez de vos limites avant que les problèmes n'arrivent.", long: `<p>La fidélité est un concept différent pour chacun. Pour certains, avoir un repas privé avec une personne du sexe opposé est de la tromperie. Pour d'autres, c'est anodin.</p><p>Ne devinez pas. Parlez-en à froid. Quelles sont vos limites ? Qu'est-ce qui vous blesse ? Mettre les règles au clair dès le départ évite 90% des trahisons involontaires.</p>` },
+    { id: 11, cat: "Communication", titre: "Le silence expliqué", court: "Un silence expliqué est un respect. Un silence imposé est une blessure.", long: `<p>Quand on est en colère, il est normal de vouloir s'isoler. Mais bouder sans explication (le silence punitif) est une forme de violence psychologique.</p><p>Si vous avez besoin de temps, dites-le : « Je suis trop énervé pour parler maintenant, j'ai besoin d'une heure pour me calmer, mais je t'aime et je reviens vers toi après. »</p>` },
+    { id: 12, cat: "Psychologie", titre: "Comprendre l'attachement", court: "Notre façon d'aimer vient de l'enfance.", long: `<p>Notre style d'attachement vient souvent de nos relations avec nos parents. Certains ont peur de l'abandon et s'accrochent, d'autres ont peur de l'étouffement et fuient.</p><p>Ce n'est pas une fatalité. En comprenant pourquoi vous réagissez de telle façon, vous pouvez arrêter de saboter vos relations et commencer à communiquer vos peurs de manière saine.</p>` },
+    { id: 13, cat: "Vie de couple", titre: "La gestion des tâches", court: "L'amour, c'est aussi faire sa part du ménage.", long: `<p>La 'charge mentale' (penser aux courses, aux rendez-vous) tue plus de couples que l'infidélité. Si une seule personne gère tout, elle finit par ressentir de la rancœur.</p><p>L'amour, ce n'est pas juste dire 'je t'aime', c'est agir. Partagez les responsabilités du quotidien équitablement pour préserver l'harmonie.</p>` },
+    { id: 14, cat: "Romantisme", titre: "Le pouvoir du câlin", court: "Un câlin de 20 secondes libère l'hormone du lien.", long: `<p>Un câlin sincère, qui dure au moins 20 secondes, libère de l'ocytocine (l'hormone de l'attachement) et réduit le cortisol (l'hormone du stress).</p><p>N'oubliez pas de vous prendre dans les bras, de vous toucher. Dans un monde stressant, le corps de votre partenaire doit être un refuge de paix.</p>` },
+    { id: 15, cat: "Fidélité", titre: "Se reconstruire après une erreur", court: "Pardonner ne veut pas dire oublier.", long: `<p>Si la confiance a été brisée, elle peut parfois se reconstruire, mais cela demande un travail de titan. La personne qui a trahi doit accepter de donner une transparence totale sans se plaindre.</p><p>La personne trahie doit faire un effort conscient pour ne pas constamment punir l'autre. C'est un chemin long qui demande une volonté mutuelle.</p>` },
+    { id: 16, cat: "Communication", titre: "L'art du compliment", court: "Un compliment sincère peut changer la journée de quelqu'un.", long: `<p>On oublie souvent de dire ce qu'on aime chez l'autre, parce qu'on pense qu'il le sait déjà. Mais entendre « J'aime ta façon de rire » ou « Tu es quelqu'un de très gentil » fait toujours plaisir.</p><p>Soyez précis dans vos compliments. Ne dites pas juste « Tu es beau », dites « J'adore la façon dont cette chemise fait ressortir tes yeux ». C'est beaucoup plus puissant.</p>` },
+    { id: 17, cat: "Psychologie", titre: "Le piège de la comparaison", court: "Ne comparez jamais votre couple aux autres.", long: `<p>Sur les réseaux sociaux, tout le monde montre un couple parfait. C'est une illusion. Vous ne voyez pas les disputes, les doutes, les larmes.</p><p>Ne comparez pas votre relation aux apparences des autres. Concentrez-vous sur votre propre complicité. Le bonheur est une affaire privée, pas un concours de photos.</p>` },
+    { id: 18, cat: "Vie de couple", titre: "L'importance de la routine", court: "La routine tue l'amour seulement si on la laisse faire.", long: `<p>Se lever, travailler, manger, dormir... La routine peut sembler ennuyeuse. Mais elle est aussi le signe d'une relation stable et sécurisante.</p><p>Pour éviter la monotonie, cassez la routine de temps en temps : un rendez-vous imprévu, un week-end improvisé, ou même juste un dîner aux chandelles un lundi soir.</p>` },
+    { id: 19, cat: "Romantisme", titre: "Les souvenirs partagés", court: "Créez des souvenirs ensemble, ils sont votre trésor.", long: `<p>Le temps passe vite. Si vous ne faites que travailler et gérer le quotidien, votre relation devient une simple logistique.</p><p>Planifiez des choses ensemble : un voyage, une randonnée, un cours de cuisine. Les souvenir
