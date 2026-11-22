@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DANNY RT AMOUR — L'amour intelligent, le respect et la maturité</title>
+<meta name="description" content="DANNY RT AMOUR : apprendre à construire une relation amoureuse saine. Conseils, psychologie, fidélité, romantisme, vie de couple et citations.">
+<meta name="author" content="Danny RT">
+<meta name="theme-color" content="#e63946">
+<meta property="og:title" content="DANNY RT AMOUR">
+<meta property="og:description" content="L'amour intelligent, le respect et la maturité.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://piterdaniel-hub.github.io/danny-rt-amour/">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" type="image/svg+xml" href="icon.svg">
+<link rel="apple-touch-icon" href="icon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+  :root{
+    --bg:#0d0d0d; --bg-alt:#141414; --surface:#1b1b1b;
+    --text:#f4f4f4; --text-muted:#9d9d9d;
+    --red:#e63946; --red-dark:#b52a36; --pink:#ff8fa3;
+    --border:#2a2a2a; --shadow:0 10px 30px rgba(0,0,0,.35);
+    --radius:16px; --max:1180px;
+  }
+  html[data-theme="light"]{
+    --bg:#fdfbfb; --bg-alt:#ffffff; --surface:#ffffff;
+    --text:#1a1a1a; --text-muted:#666;
+    --border:#ececec; --shadow:0 10px 30px rgba(0,0,0,.08);
+  }
+
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Inter',system-ui,sans-serif;
+    background:var(--bg); color:var(--text);
+    line-height:1.65; -webkit-font-smoothing:antialiased;
+    transition:background .3s, color .3s;
+  }
+  h1,h2,h3{font-family:'Playfair Display',Georgia,serif;line-height:1.2}
+  h1{font-size:clamp(2rem,5vw,3.4rem)}
+  h2{font-size:clamp(1.6rem,3.5vw,2.4rem);margin-bottom:8px}
+  h3{font-size:1.15rem;margin-bottom:8px}
+  a{color:var(--pink);text-decoration:none}
+  .container{max-width:var(--max);margin:0 auto;padding:0 20px}
+
+  /* Header */
+  .site-header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(13,13,13,.85); backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--border);
+  }
+  html[data-theme="light"] .site-header{background:rgba(255,255,255,.88)}
+  .header-inner{
+    position:relative; display:flex; align-items:center; gap:14px;
+    padding:14px 20px; max-width:var(--max); margin:0 auto;
+  }
+  .logo{
+    font-family:'Playfair Display',serif; font-weight:800;
+    font-size:1.15rem; color:var(--text); white-space:nowrap; letter-spacing:.5px;
+  }
+  .logo span{color:var(--red)}
+  .nav{display:flex;gap:2px;margin-left:auto;flex-wrap:wrap}
+  .nav a{
+    color:var(--text-muted); font-size:.85rem; padding:6px 10px;
+    border-radius:8px; transition:.2s;
+  }
+  .nav a:hover{color:var(--text);background:var(--surface)}
+  .header-actions{display:flex;gap:8px;align-items:center}
+  .search-box{position:relative}
+  .search-box input{
+    background:var(--surface); border:1px solid var(--border); color:var(--text);
+    padding:8px 12px 8px 32px; border-radius:10px; font-size:.85rem;
+    width:170px; transition:width .25s,border-color .2s; font-family:inherit;
+  }
+  .search-box input:focus{outline:none;border-color:var(--red);width:220px}
+  .search-box::before{
+    content:"🔍"; position:absolute; left:10px; top:50%;
+    transform:translateY(-50%); font-size:.75rem; opacity:.7; pointer-events:none;
+  }
+  .icon-btn{
+    background:var(--surface); border:1px solid var(--border); color:var(--text);
+    width:38px; height:38px; border-radius:10px; cursor:pointer;
+    font-size:1rem; display:grid; place-items:center; transition:.2s;
+  }
+  .icon-btn:hover{border-color:var(--red)}
+  .menu-toggle{display:none}
+
+  /* Hero */
+  .hero{
+    padding:90px 20px 70px; text-align:center;
+    background:
+      radial-gradient(circle at 20% 20%, rgba(230,57,70,.15), transparent 40%),
+      radial-gradient(circle at 80% 30%, rgba(255,143,163,.12), transparent 45%);
+  }
+  .hero .eyebrow{
+    display:inline-block; color:var(--pink); font-size:.8rem;
+    letter-spacing:3px; text-transform:uppercase; margin-bottom:16px; font-weight:600;
+  }
+  .hero h1{max-width:900px;margin:0 auto 18px}
+  .hero h1 em{color:var(--red);font-style:normal}
+  .hero p{max-width:640px;margin:0 auto 32px;color:var(--text-muted);font-size:1.05rem}
+  .hero-buttons{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+
+  .btn{
+    display:inline-block; padding:12px 26px; border-radius:12px;
+    font-weight:600; font-size:.95rem; transition:.2s;
+    border:1px solid transparent; cursor:pointer; font-family:inherit;
+  }
+  .btn-primary{background:var(--red);color:#fff}
+  .btn-primary:hover{background:var(--red-dark);transform:translateY(-2px)}
+  .btn-outline{background:transparent;color:var(--text);border-color:var(--border)}
+  .btn-outline:hover{border-color:var(--red);color:var(--pink)}
+
+  /* Bande couleurs */
+  .values-strip{border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--bg-alt)}
+  .values-inner{
+    display:flex;justify-content:center;gap:36px;padding:18px 20px;flex-wrap:wrap;
+    font-size:.78rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:1.5px;font-weight:600;
+  }
+  .values-inner span{display:flex;align-items:center;gap:8px}
+  .values-inner i{width:10px;height:10px;border-radius:50%;display:inline-block}
+
+  /* Sections */
+  .section{padding:70px 0}
+  .section-alt{background:var(--bg-alt)}
+  .section-head{max-width:720px;margin:0 auto 40px;text-align:center;padding:0 20px}
+  .section-head .tag{
+    color:var(--red); font-size:.78rem; letter-spacing:2px;
+    text-transform:uppercase; font-weight:700; display:block; margin-bottom:10px;
+  }
+  .section-head p{color:var(--text-muted);margin-top:8px}
+
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+  .card{
+    background:var(--surface); border:1px solid var(--border);
+    border-radius:var(--radius); padding:26px 24px; transition:.25s;
+  }
+  .card:hover{transform:translateY(-4px);border-color:var(--red);box-shadow:var(--shadow)}
+  .card .card-icon{font-size:1.8rem;margin-bottom:12px;display:block}
+  .card p{color:var(--text-muted);font-size:.94rem}
+
+  /* Citations */
+  .quotes-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+  .quote{
+    background:var(--surface); border-left:4px solid var(--red);
+    border-radius:var(--radius); padding:26px;
+    font-family:'Playfair Display',serif; font-style:italic;
+    font-size:1.08rem; line-height:1.6;
+  }
+  .quote-author{
+    display:block; margin-top:12px; font-family:'Inter',sans-serif;
+    font-style:normal; font-size:.82rem; color:var(--pink); font-weight:600;
+  }
+
+  /* Contact cards */
+  .contact-grid{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+  .contact-card{
+    display:block; position:relative; text-decoration:none;
+    color:var(--text); cursor:pointer;
+    border:1px solid var(--border); background:var(--surface);
+    padding:28px 24px 28px 24px;
+  }
+  .contact-card::after{
+    content:"→"; position:absolute; top:20px; right:22px;
+    color:var(--red); font-size:1.2rem; transition:.2s;
+  }
+  .contact-card:hover::after{transform:translateX(6px)}
+  .contact-card:hover{border-color:var(--red);transform:translateY(-4px);box-shadow:var(--shadow)}
+  .contact-card .card-icon{font-size:2.2rem;margin-bottom:10px}
+  .contact-card h3{margin-bottom:4px}
+  .contact-card p{color:var(--pink);font-size:.9rem;word-break:break-word;font-weight:500}
+  .contact-card.whatsapp p{color:#25D366}
+  .contact-card.facebook p{color:#1877F2}
+  .contact-card.gmail p{color:#EA4335}
+
+  /* Footer */
+  footer{
+    border-top:1px solid var(--border); padding:36px 20px;
+    text-align:center; color:var(--text-muted); font-size:.88rem;
+  }
+  footer strong{color:var(--red)}
+  .footer-social{
+    display:flex; justify-content:center; gap:14px; margin:16px 0;
+  }
+  .footer-social a{
+    display:grid; place-items:center; width:42px; height:42px;
+    border:1px solid var(--border); border-radius:10px;
+    font-size:1.1rem; transition:.2s; color:var(--text);
+  }
+  .footer-social a:hover{border-color:var(--red);transform:translateY(-2px)}
+
+  #noResults{
+    display:none; text-align:center; padding:60px 20px;
+    color:var(--text-muted); font-size:1rem;
+  }
+  #noResults strong{color:var(--red)}
+
+  /* Responsive */
+  @media (max-width:900px){
+    .nav{
+      display:none; position:absolute; top:100%; left:0; right:0;
+      flex-direction:column; background:var(--bg);
+      border-bottom:1px solid var(--border); padding:12px 20px; gap:4px;
+    }
+    .nav.open{display:flex}
+    .menu-toggle{display:grid}
+    .search-box input{width:130px}
+    .search-box input:focus{width:160px}
+    .hero{padding:60px 20px 50px}
+    .section{padding:50px 0}
+    .values-inner{gap:20px;font-size:.72rem}
+  }
+  @media (max-width:480px){
+    .search-box input{width:100px;padding-left:28px;font-size:.8rem}
+    .search-box input:focus{width:130px}
+    .header-inner{gap:8px;padding:12px 14px}
+    .logo{font-size:1rem}
+    .icon-btn{width:34px;height:34px;font-size:.9rem}
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="header-inner">
+    <a href="#accueil" class="logo">DANNY <span>RT</span> AMOUR</a>
+
+    <nav class="nav" id="nav">
+      <a href="#conseils">Conseils</a>
+      <a href="#psychologie">Psychologie</a>
+      <a href="#couple">Couple</a>
+      <a href="#romantisme">Romantisme</a>
+      <a href="#fidelite">Fidélité</a>
+      <a href="#citations">Citations</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="header-actions">
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Rechercher…" aria-label="Rechercher dans le site">
+      </div>
+      <button class="icon-btn" id="themeToggle" aria-label="Changer de thème" title="Mode sombre / clair">🌙</button>
+      <button class="icon-btn menu-toggle" id="menuToggle" aria-label="Menu">☰</button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero" id="accueil">
+    <span class="eyebrow">Danny RT Amour</span>
+    <h1>L'amour n'est pas une <em>faiblesse</em>,<br>c'est une responsabilité.</h1>
+    <p>Un espace personnel et éducatif pour apprendre à aimer avec intelligence, respect et maturité. Conseils, psychologie, fidélité, romantisme : grandis dans tes relations.</p>
+    <div class="hero-buttons">
+      <a href="#conseils" class="btn btn-primary">Découvrir les conseils</a>
+      <a href="#contact" class="btn btn-outline">Me contacter</a>
+    </div>
+  </section>
+
+  <!-- Bande couleurs -->
+  <div class="values-strip">
+    <div class="values-inner">
+      <span><i style="background:#0d0d0d;border:1px solid #444"></i> Élégance</span>
+      <span><i style="background:#e63946"></i> Amour</span>
+      <span><i style="background:#f4f4f4;border:1px solid #444"></i> Simplicité</span>
+      <span><i style="background:#ff8fa3"></i> Romantisme</span>
+    </div>
+  </div>
+
+  <!-- CONSEILS -->
+  <section class="section" id="conseils">
+    <div class="container">
+      <div class="section-head">
+        <span class="tag">Conseils amoureux</span>
+        <h2>Apprendre à aimer, un jour à la fois</h2>
+        <p>Des principes simples, profonds et concrets pour bâtir une relation saine.</p>
+      </div>
+      <div class="grid">
+        <div class="card">
+          <span class="card-icon">🎧</span>
+          <h3>Écouter avant de répondre</h3>
+          <p>Dans une dispute, la première victoire n'est pas d'avoir raison, mais d'avoir compris. Laisse l'autre finir sa phrase, respire, reformule ce qu'il vient de dire. 80 % des conflits se calment quand on se sent écouté.</p>
+        </div>
+        <div class="card">
+          <span class="card-icon">🤝</span>
+          <h3>La confiance se construit lentement</h3>
+          <p>La confiance ne se décrète pas, elle se mérite jour après jour. Elle se gagne par de petites promesses tenues, pas par de grands serments. Sois régulier, sois honnête, sois présent.</p>
+        </div>
+        <div class="card">
+          <span class="card-icon">🗣️</span>
+          <h3>Choisis tes mots, pas ta colère</h3>
+          <p>La colère est légitime, mais elle ne doit jamais devenir une arme. Dis « je me sens blessé » plutôt que « tu es méchant ». Le premier ouvre une porte, le second la ferme.</p>
+        </div>
+        <div class="card">
+          <span class="card-icon">💬</span>
+          <h3>Le silence n'est pas une punition</h3>
+          <p>Bouder n'est pas communiquer. Si tu as besoin de temps, dis-le : « J'ai besoin d'une heure, mais je reviens vers toi. » Un silence expliqué est un respect. Un silence imposé est une blessure.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PSYCHOLOGIE -->
+  <section class="section section-alt" id="psychologie">
+    <div class="container">
+      <div class="section-head">
+        <span class="tag">Psychologie</span>
+        <h2>Comprendre les émotions humaines</h2>
+        <p>On ne peut pas aimer quelqu'un qu'on ne comprend pas — ni soi-même.</p>
+      </div>
+      <div class="grid">
+        <div class="card">
+          <span class="card-icon">🧠</span>
+          <h3>Comprendre ses émotions</h3>
+          <p>Une émotion n'est ni bonne ni mauvaise : c'est une information. La colère signale une limite franchie. La tristesse signale un besoin de réconfort. Nommer ce que tu ressens, c'est déjà commencer à ne plus le subir.</p>
+        </div>
+        <div class="card">
+          <span class="card-icon">💞</span>
+          <h3>Les 5 langages de l'amour</h3>
+          <p>Paroles valorisantes, temps de qualité, cadeaux, services rendus, contact physique. Chacun exprime l'amour à sa manière. Comprendre le langage de l'autre change tout : on peut aimer sincèrement et être mal compris.</p>
+        </div>
+        <div class="card">
+          <span class="card-icon">🪞</span>
+          <h3>L'attachement</h3>
+          <p>Notre façon d'aimer vient souvent de l'enfance. Certains ont peur de l'abandon, d'autres fuient l'engagement. Ce n'est pas une fatalité : en comprenant ton style d'attachement, tu peux apprendre à aimer plus sereinement.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VIE DE COUPLE -->
+  <section class="section" id="couple">
+    <div class="container">
+      <div class="section-head">
+        <span class="tag">Vie de couple</span>
+        <h2>Apprendre à vivre ensemble</h2>
+        <p>L'amour durable se joue dans les détails du quotidien.</p>
+      </div>
+      <div class="grid">
+        <div class="card">
+          <span class="card-icon">☕</span>
+          <h3>Les petites habitudes valent plus que les grands gestes</h3>
+          <p>Un café préparé le matin, un message dans la journée, une main tenue dans la rue. L'amour durable ne vit pas dans les grandes déclarations, mais dans la répétition des petites attentions.</p>
+        </div>
+        <div class="card">
+          <span class="card-icon">🌧️</span>
+          <h3>Gérer les désaccords</h3>
+          <p>Deux personnes qui s'aiment ne sont pas d'accord sur tout — et c'est normal. Le but n'est pas d'éviter les conflits, mais de les traverser ensemble. Règle d'or : critique le comportement, jamais la personne.</p>
+        </div>
+        <div class="card">
+          <span class="card-icon">⏳</span>
+          <h3>Le temps de qualité</h3>
+          <p>Un couple a besoin de temps sans écran, sans travail, sans logistique. Une heure par semaine où l'on se regarde vraiment vaut plus que dix heures côte à côte sur le téléphone.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROMANTISME -->
+  <section class="section section-alt" id="romantisme">
+    <div class="container">
+      <div class="section-head">
+        <span class="tag">Romantisme</span>
+        <h2>Baisers, câlins et tendresse</h2>
+        <p>Le romantisme n'est pas une faiblesse : c'est une force qui nourrit le lien.</p>
+      </div>
+      <div class="grid">
+        <div class="card">
+          <span class="card-icon">🌹</span>
+          <h3>Une surprise, pas un anniversaire</h3>
+          <p>Le romantisme ne se programme pas aux dates officielles. Une fleur un mardi, un message à midi, un souvenir partagé sans raison : ce sont ces gestes-là qui marquent.</p>
+        </div>
+        <div class="card">
+          <span class="card-icon">💌</span>
+          <h3>Un mot écrit</h3>
+          <p>Écris à la main. Les mots écrits restent, se relisent, se gardent. Une lettre d'amour ne prend pas beaucoup de temps à écrire, mais elle peut durer toute une vie.</p>
+        </div>
+        <div class="card">
+          <span class="card-icon">🤗</span>
+          <h3>Le câlin de 20 secondes</h3>
+          <p>Un câlin de vingt secondes libère l'ocytocine, l'hormone du lien. Ne t'en prive pas. Un câlin sincère vaut parfois plus qu'une longue conversation.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FIDÉLITÉ -->
+  <section class="section" id="fidelite">
+    <div class="container">
+      <div class="section-head">
+        <span class="tag">Fidélité</span>
+        <h2>Confiance et respect</h2>
+        <p>La fidélité n'est pas qu'un acte : c'est une intention, un choix quotidien.</p>
+      </div>
+      <div class="grid">
+        <div class="card">
+          <span class="card-icon">🔍</span>
+          <h3>La transparence</h3>
+          <p>La fidélité n'est pas seulement physique. Elle est aussi mentale et émotionnelle. Dire la vérité, ne pas cacher, ne pas mentir : c'est ce qui nourrit la confiance sur la durée.</p>
+        </div>
+        <div class="card">
+          <span class="card-icon">🚧</span>
+          <h3>Respecter les limites</h3>
+          <p>Chaque couple fixe ses règles. Ce qui est fidélité pour l'un ne l'est pas pour l'autre. Parlez-en avant que les problèmes n'arrivent : quelles sont nos limites ? Qu'est-ce qui nous blesse ?</p>
+        </div>
+        <div class="card">
+          <span class="card-icon">🛠️</span>
+          <h3>Se reconstruire après une erreur</h3>
+          <p>La fidélité peut être brisée. La confiance peut parfois se reconstruire, si l'on accepte de parler, de pardonner et de changer. Cela prend du temps — parfois des années — et demande un vrai engagement des deux côtés.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CITATIONS -->
+  <section class="section section-alt" id="citations">
+    <div class="container">
+      <div class="section-head">
+        <span class="tag">Citations</span>
+        <h2>Belles paroles d'amour</h2>
+        <p>Des pensées qui font du bien, à lire et à relire.</p>
+      </div>
+      <div class="quotes-grid">
+        <div class="quote">
+          « Aimer, ce n'est pas regarder l'un vers l'autre, c'est regarder ensemble dans la même direction. »
+          <span class="quote-author">— Antoine de Saint-Exupéry</span>
+        </div>
+        <div class="quote">
+          « L'amour n'est pas une faiblesse, c'est une responsabilité. »
+          <span class="quote-author">— Danny RT</span>
+        </div>
+        <div class="quote">
+          « La confiance est le socle invisible sur lequel tout amour repose. »
+          <span class="quote-author">— Danny RT</span>
+        </div>
+        <div class="quote">
+          « On ne possède pas quelqu'un qu'on aime : on l'accompagne. »
+          <span class="quote-author">— Danny RT</span>
+        </div>
+        <div class="quote">
+          « Le plus beau cadeau que tu puisses offrir à quelqu'un, c'est ta présence. »
+          <span class="quote-author">— Danny RT</span>
+        </div>
+        <div class="quote">
+          « Aimer, c'est choisir chaque jour la même personne. »
+     
