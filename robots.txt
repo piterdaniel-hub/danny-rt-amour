@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://piterdaniel-hub.github.io/danny-rt-amour/sitemap.xml
