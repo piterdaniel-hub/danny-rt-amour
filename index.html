@@ -4,396 +4,153 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>DANNY RT AMOUR — L'amour intelligent, le respect et la maturité</title>
-<meta name="description" content="DANNY RT AMOUR : Apprenez à construire une relation saine. Conseils en psychologie, vie de couple, romantisme et fidélité.">
-<meta name="author" content="Danny RT">
-<meta name="theme-color" content="#0a0a0a">
-
-<link rel="manifest" href="manifest.json">
-<link rel="icon" type="image/svg+xml" href="icon.svg">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
-
 <style>
-  /* =========================================
-     RESET ULTRA-STABLE (Sans animation cachée)
-     ========================================= */
-  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
+  /* RESET ULTRA-STABLE (Sans aucune animation qui fait planter) */
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background-color: #0a0a0a; color: #f4f4f4; font-family: 'Inter', sans-serif; line-height: 1.6; }
+  h1, h2, h3 { font-family: 'Playfair Display', serif; color: #fff; }
+  a { text-decoration: none; color: #ff8fa3; cursor: pointer; }
+  a:hover { color: #e63946; }
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
 
-  body {
-    background-color: #0a0a0a;
-    color: #f4f4f4;
-    font-family: 'Inter', sans-serif;
-    line-height: 1.6;
-    overflow-x: hidden;
-  }
+  /* HEADER */
+  .site-header { background-color: #111; border-bottom: 1px solid #222; position: sticky; top: 0; z-index: 100; }
+  .header-inner { display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; max-width: 1100px; margin: 0 auto; flex-wrap: wrap; gap: 10px;}
+  .logo { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; color: #fff; }
+  .logo span { color: #e63946; }
+  .nav a { color: #a0a0a0; font-size: 0.9rem; font-weight: 600; margin-left: 15px; }
 
-  h1, h2, h3 {
-    font-family: 'Playfair Display', serif;
-    color: #ffffff;
-  }
+  /* HERO */
+  .hero { background: linear-gradient(180deg, #111 0%, #0a0a0a 100%); padding: 70px 20px; text-align: center; border-bottom: 1px solid #222; }
+  .hero h1 { font-size: 2.5rem; margin-bottom: 15px; line-height: 1.2; }
+  .hero h1 span { color: #e63946; }
+  .hero p { color: #a0a0a0; font-size: 1.1rem; max-width: 600px; margin: 0 auto 30px; }
+  .btn { display: inline-block; padding: 12px 24px; border-radius: 8px; font-weight: 600; cursor: pointer; border: none; text-align: center; font-size: 1rem; }
+  .btn-primary { background-color: #e63946; color: #fff; }
+  .btn-primary:hover { background-color: #b52a36; color: #fff; }
 
-  a {
-    text-decoration: none;
-    color: #ff8fa3;
-    transition: color 0.3s;
-  }
+  /* SECTIONS & CARTES */
+  .section { padding: 60px 0; }
+  .section-alt { background-color: #111; border-top: 1px solid #222; border-bottom: 1px solid #222; }
+  .section-head { text-align: center; margin-bottom: 30px; }
+  .section-head h2 { font-size: 2rem; margin-bottom: 10px; color: #e63946; }
+  .section-head p { color: #a0a0a0; margin-bottom: 20px; }
 
-  a:hover {
-    color: #e63946;
-  }
+  /* RECHERCHE INTERNE */
+  .search-bar { max-width: 400px; margin: 0 auto 30px; display: flex; }
+  .search-bar input { width: 100%; padding: 12px 20px; border-radius: 30px; border: 1px solid #333; background: #1a1a1a; color: #fff; font-size: 1rem; outline: none; }
+  .search-bar input:focus { border-color: #e63946; }
 
-  .container {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 20px;
-  }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
 
-  /* =========================================
-     HEADER & MENU
-     ========================================= */
-  .site-header {
-    background-color: #111111;
-    border-bottom: 1px solid #222222;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-  }
+  .card { background-color: #1a1a1a; border: 1px solid #333; border-radius: 12px; padding: 25px; cursor: pointer; transition: 0.2s; display: flex; flex-direction: column; }
+  .card:hover { border-color: #e63946; transform: translateY(-3px); }
+  .card h3 { color: #fff; margin-bottom: 10px; font-size: 1.2rem; }
+  .card p { color: #a0a0a0; font-size: 0.95rem; flex-grow: 1; }
+  .card-meta { font-size: 0.75rem; color: #ff8fa3; text-transform: uppercase; font-weight: 700; margin-bottom: 8px; display: block; }
+  .read-more { display: block; margin-top: 15px; color: #e63946; font-weight: 700; font-size: 0.9rem; }
 
-  .header-inner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 15px 20px;
-    max-width: 1100px;
-    margin: 0 auto;
-  }
+  /* BOUTON AFFICHER PLUS */
+  .load-more-container { text-align: center; margin-top: 30px; display: none; }
+  .btn-load { background: transparent; border: 1px solid #e63946; color: #e63946; padding: 10px 30px; border-radius: 30px; font-weight: 600; cursor: pointer; font-size: 1rem; }
+  .btn-load:hover { background: #e63946; color: #fff; }
 
-  .logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: #ffffff;
-  }
+  /* CITATIONS */
+  .quote-box { background-color: #1a1a1a; border-left: 4px solid #e63946; padding: 20px; border-radius: 0 12px 12px 0; font-style: italic; cursor: pointer; }
+  .quote-author { display: block; margin-top: 10px; font-style: normal; font-size: 0.85rem; color: #ff8fa3; font-weight: 700; }
 
-  .logo span {
-    color: #e63946;
-  }
+  /* CONTACT */
+  .contact-form { max-width: 600px; margin: 0 auto 40px; display: flex; flex-direction: column; gap: 15px; }
+  .contact-form input, .contact-form textarea { width: 100%; padding: 15px; background-color: #1a1a1a; border: 1px solid #333; border-radius: 8px; color: #fff; font-family: inherit; }
+  .contact-form input:focus, .contact-form textarea:focus { border-color: #e63946; outline: none; }
+  .contact-links { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
+  .contact-btn { background-color: #1a1a1a; border: 1px solid #333; padding: 15px 25px; border-radius: 8px; color: #fff; font-weight: 600; display: flex; align-items: center; gap: 10px; }
+  .contact-btn:hover { border-color: #e63946; }
 
-  .nav {
-    display: flex;
-    gap: 15px;
-  }
+  /* MODAL (Fenêtre de lecture) */
+  .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); z-index: 1000; display: none; justify-content: center; align-items: center; padding: 20px; }
+  .modal-overlay.active { display: flex; }
+  .modal-content { background: #111; border: 1px solid #333; border-radius: 12px; width: 100%; max-width: 700px; max-height: 90vh; overflow-y: auto; padding: 30px; position: relative; }
+  .close-modal { position: absolute; top: 15px; right: 15px; background: #e63946; color: #fff; border: none; width: 35px; height: 35px; border-radius: 50%; font-size: 1.2rem; cursor: pointer; font-weight: bold; }
+  .modal-title { font-size: 1.8rem; color: #e63946; margin-bottom: 10px; }
+  .modal-meta { font-size: 0.8rem; color: #ff8fa3; text-transform: uppercase; font-weight: bold; margin-bottom: 20px; }
+  .modal-text p { margin-bottom: 15px; color: #ccc; line-height: 1.8; font-size: 1.05rem; }
+  .modal-text h4 { color: #fff; margin: 20px 0 10px; font-size: 1.2rem; }
 
-  .nav a {
-    color: #a0a0a0;
-    font-size: 0.9rem;
-    font-weight: 600;
-  }
+  /* WHATSAPP FLOTTANT */
+  .whatsapp-float { position: fixed; bottom: 20px; right: 20px; background-color: #25D366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 30px; box-shadow: 0 4px 10px rgba(0,0,0,0.5); z-index: 1000; }
 
-  .nav a:hover {
-    color: #ffffff;
-  }
+  footer { text-align: center; padding: 40px 20px; border-top: 1px solid #222; color: #a0a0a0; font-size: 0.9rem; }
 
-  /* =========================================
-     HERO SECTION
-     ========================================= */
-  .hero {
-    background: linear-gradient(180deg, #111111 0%, #0a0a0a 100%);
-    padding: 80px 20px;
-    text-align: center;
-    border-bottom: 1px solid #222222;
-  }
-
-  .hero h1 {
-    font-size: 2.2rem;
-    margin-bottom: 15px;
-    line-height: 1.2;
-  }
-
-  .hero h1 span {
-    color: #e63946;
-  }
-
-  .hero p {
-    color: #a0a0a0;
-    font-size: 1.1rem;
-    max-width: 600px;
-    margin: 0 auto 30px auto;
-  }
-
-  /* =========================================
-     BOUTONS
-     ========================================= */
-  .btn {
-    display: inline-block;
-    padding: 12px 24px;
-    border-radius: 8px;
-    font-weight: 600;
-    font-size: 1rem;
-    cursor: pointer;
-    border: none;
-    text-align: center;
-  }
-
-  .btn-primary {
-    background-color: #e63946;
-    color: #ffffff;
-  }
-
-  .btn-primary:hover {
-    background-color: #b52a36;
-    color: #ffffff;
-  }
-
-  .btn-outline {
-    background-color: transparent;
-    color: #ffffff;
-    border: 1px solid #444444;
-  }
-
-  .btn-outline:hover {
-    border-color: #e63946;
-    color: #e63946;
-  }
-
-  /* =========================================
-     SECTIONS & CARTES
-     ========================================= */
-  .section {
-    padding: 60px 0;
-  }
-
-  .section-alt {
-    background-color: #111111;
-    border-top: 1px solid #222222;
-    border-bottom: 1px solid #222222;
-  }
-
-  .section-head {
-    text-align: center;
-    margin-bottom: 40px;
-  }
-
-  .section-head h2 {
-    font-size: 2rem;
-    margin-bottom: 10px;
-  }
-
-  .section-head p {
-    color: #a0a0a0;
-  }
-
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
-  }
-
-  /* Cartes Conseils & Blog */
-  .card {
-    background-color: #1a1a1a;
-    border: 1px solid #333333;
-    border-radius: 12px;
-    padding: 25px;
-  }
-
-  .card h3 {
-    color: #ff8fa3;
-    margin-bottom: 10px;
-    font-size: 1.2rem;
-  }
-
-  .card p {
-    color: #a0a0a0;
-    font-size: 0.95rem;
-  }
-
-  .card-meta {
-    font-size: 0.75rem;
-    color: #e63946;
-    text-transform: uppercase;
-    font-weight: 700;
-    margin-bottom: 8px;
-    display: block;
-  }
-
-  /* Section Citations */
-  .quote {
-    background-color: #1a1a1a;
-    border-left: 4px solid #e63946;
-    padding: 20px;
-    border-radius: 0 12px 12px 0;
-    font-style: italic;
-    color: #f4f4f4;
-  }
-
-  .quote-author {
-    display: block;
-    margin-top: 10px;
-    font-style: normal;
-    font-size: 0.85rem;
-    color: #ff8fa3;
-    font-weight: 700;
-  }
-
-  /* =========================================
-     FORMULAIRE & CONTACT
-     ========================================= */
-  .contact-form {
-    max-width: 600px;
-    margin: 0 auto 40px auto;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-  }
-
-  .contact-form input,
-  .contact-form textarea {
-    width: 100%;
-    padding: 15px;
-    background-color: #1a1a1a;
-    border: 1px solid #333333;
-    border-radius: 8px;
-    color: #ffffff;
-    font-family: inherit;
-    font-size: 1rem;
-  }
-
-  .contact-form input:focus,
-  .contact-form textarea:focus {
-    outline: none;
-    border-color: #e63946;
-  }
-
-  .contact-links {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-  }
-
-  .contact-btn {
-    background-color: #1a1a1a;
-    border: 1px solid #333333;
-    padding: 15px 25px;
-    border-radius: 8px;
-    color: #ffffff;
-    font-weight: 600;
-  }
-
-  /* =========================================
-     FOOTER & WHATSAPP
-     ========================================= */
-  footer {
-    text-align: center;
-    padding: 40px 20px;
-    border-top: 1px solid #222222;
-    color: #a0a0a0;
-    font-size: 0.9rem;
-  }
-
-  footer strong {
-    color: #e63946;
-    font-size: 1.1rem;
-  }
-
-  .whatsapp-float {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: #25D366;
-    color: white;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 30px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-    z-index: 1000;
-  }
-
-  /* =========================================
-     RESPONSIVE MOBILE
-     ========================================= */
   @media (max-width: 768px) {
-    .header-inner {
-      flex-direction: column;
-      gap: 15px;
-    }
-    .nav {
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-    .hero h1 {
-      font-size: 1.8rem;
-    }
+    .hero h1 { font-size: 1.8rem; }
+    .modal-content { padding: 20px; }
+    .modal-title { font-size: 1.4rem; }
   }
 </style>
 </head>
 <body>
 
-<!-- HEADER -->
 <header class="site-header">
   <div class="header-inner">
     <div class="logo">❤️ DANNY <span>RT</span> AMOUR</div>
     <nav class="nav">
       <a href="#conseils">Conseils</a>
-      <a href="#blog">Blog</a>
+      <a href="#blog">Articles</a>
       <a href="#citations">Citations</a>
       <a href="#contact">Contact</a>
     </nav>
   </div>
 </header>
 
-<!-- HERO -->
 <section class="hero">
   <h1>L'amour n'est pas une <span>faiblesse</span>,<br>c'est une responsabilité.</h1>
-  <p>Apprenez à aimer avec intelligence, respect et maturité. Découvrez nos conseils, notre blog et nos citations inspirantes.</p>
-  <a href="#conseils" class="btn btn-primary">Lire les conseils</a>
+  <p>Apprenez à aimer avec intelligence, respect et maturité. Cliquez sur une carte pour lire le contenu complet.</p>
+  <a href="#conseils" class="btn btn-primary">Découvrir les conseils</a>
 </section>
 
-<!-- CONSEILS DYNAMIQUES -->
+<!-- CONSEILS -->
 <section class="section" id="conseils">
   <div class="container">
     <div class="section-head">
-      <h2>Conseils Amoureux</h2>
-      <p>Des principes concrets pour bâtir une relation saine.</p>
+      <h2>💡 Conseils Pratiques</h2>
+      <p>Cliquez sur un conseil pour lire l'explication.</p>
+      <div class="search-bar"><input type="text" id="search-advice" placeholder="Rechercher un conseil..." onkeyup="filterAdvice()"></div>
     </div>
-    <div class="grid" id="advice-grid">
-      <!-- Rempli par JavaScript -->
+    <div class="grid" id="advice-grid"></div>
+    <div class="load-more-container" id="load-advice-cont">
+      <button class="btn-load" onclick="loadMoreAdvices()">Afficher plus de conseils</button>
     </div>
   </div>
 </section>
 
-<!-- BLOG DYNAMIQUE -->
+<!-- BLOG (ARTICLES) -->
 <section class="section section-alt" id="blog">
   <div class="container">
     <div class="section-head">
-      <h2>Le Blog de Danny RT</h2>
-      <p>Comprendre la psychologie humaine et les relations.</p>
+      <h2>📖 Articles & Psychologie</h2>
+      <p>Des lectures profondes pour comprendre l'amour.</p>
+      <div class="search-bar"><input type="text" id="search-article" placeholder="Rechercher un article..." onkeyup="filterArticles()"></div>
     </div>
-    <div class="grid" id="blog-grid">
-      <!-- Rempli par JavaScript -->
+    <div class="grid" id="blog-grid"></div>
+    <div class="load-more-container" id="load-blog-cont">
+      <button class="btn-load" onclick="loadMoreArticles()">Afficher plus d'articles</button>
     </div>
   </div>
 </section>
 
-<!-- CITATIONS DYNAMIQUES -->
+<!-- CITATIONS -->
 <section class="section" id="citations">
   <div class="container">
     <div class="section-head">
-      <h2>Citations Inspirantes</h2>
-      <p>Des paroles qui font du bien à l'âme.</p>
+      <h2>✨ Citations Inspirantes</h2>
+      <p>Cliquez pour lire en grand.</p>
+      <div class="search-bar"><input type="text" id="search-quote" placeholder="Rechercher une citation..." onkeyup="filterQuotes()"></div>
     </div>
-    <div class="grid" id="quotes-grid">
-      <!-- Rempli par JavaScript -->
+    <div class="grid" id="quotes-grid"></div>
+    <div class="load-more-container" id="load-quotes-cont">
+      <button class="btn-load" onclick="loadMoreQuotes()">Afficher plus de citations</button>
     </div>
   </div>
 </section>
@@ -402,17 +159,16 @@
 <section class="section section-alt" id="contact">
   <div class="container">
     <div class="section-head">
-      <h2>Parlons ensemble</h2>
+      <h2>✉️ Parlons ensemble</h2>
       <p>Une question ? Un témoignage ? Écris-moi.</p>
     </div>
-
+    <!-- Remplace TON_LIEN_FORMSPREE par ton lien Formspree -->
     <form action="https://formspree.io/f/TON_LIEN_FORMSPREE" method="POST" class="contact-form">
       <input type="text" name="Nom" placeholder="Ton nom complet" required>
       <input type="email" name="Email" placeholder="Ton adresse email" required>
       <textarea name="Message" placeholder="Ton message..." rows="5" required></textarea>
       <button type="submit" class="btn btn-primary">Envoyer le message ✉️</button>
     </form>
-
     <div class="contact-links">
       <a href="mailto:piterdaniel604@gmail.com" class="contact-btn">📧 Gmail</a>
       <a href="https://www.facebook.com/profile.php?id=61596270489126" target="_blank" class="contact-btn">📘 Facebook</a>
@@ -421,93 +177,61 @@
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <p><strong>DANNY RT AMOUR</strong></p>
   <p>L'amour intelligent, le respect et la maturité.</p>
-  <p style="margin-top: 15px; font-size: 0.8rem;">© 2024 Danny RT. Fait avec ❤️</p>
 </footer>
 
-<!-- BOUTON WHATSAPP FLOTTANT -->
 <a href="https://wa.me/243898560667" target="_blank" class="whatsapp-float">💬</a>
 
-<!-- SCRIPT DE GÉNÉRATION DE CONTENU -->
+<!-- FENÊTRE DE LECTURE -->
+<div class="modal-overlay" id="modal">
+  <div class="modal-content">
+    <button class="close-modal" onclick="closeModal()">✕</button>
+    <div class="modal-meta" id="modal-cat">Catégorie</div>
+    <h2 class="modal-title" id="modal-title">Titre</h2>
+    <div class="modal-text" id="modal-text">Contenu...</div>
+  </div>
+</div>
+
 <script>
-  // 1. DONNÉES CONSEILS
-  const advices = [
-    { cat: "Communication", titre: "Écouter avant de répondre", txt: "La première victoire n'est pas d'avoir raison, mais d'avoir compris. Laisse l'autre finir sa phrase." },
-    { cat: "Psychologie", titre: "Comprendre ses émotions", txt: "Une émotion est une information. La colère signale une limite franchie. La tristesse un besoin de réconfort." },
-    { cat: "Couple", titre: "Les petites habitudes", txt: "Un café le matin, un message dans la journée. L'amour durable vit dans les petites attentions." },
-    { cat: "Fidélité", titre: "La transparence", txt: "Dire la vérité, ne pas cacher, ne pas mentir : c'est ce qui nourrit la confiance sur la durée." },
-    { cat: "Romantisme", titre: "Les surprises spontanées", txt: "Une fleur un mardi, un message à midi : ce sont ces gestes imprévus qui marquent le plus." },
-    { cat: "Communication", titre: "Utiliser le 'Je'", txt: "Dis « je me sens blessé » plutôt que « tu es méchant ». Le premier ouvre le dialogue." }
+  // ==========================================
+  // BASE DE DONNÉES DES CONSEILS (10 exemples)
+  // ==========================================
+  const dataAdvices = [
+    { id: 1, cat: "Communication", titre: "Écouter avant de répondre", court: "La première victoire n'est pas d'avoir raison, mais d'avoir compris.", long: "<p>Dans une dispute, on a souvent tendance à préparer sa défense pendant que l'autre parle. C'est une erreur fatale. La première victoire n'est pas d'avoir raison, mais d'avoir compris.</p><p>Laissez l'autre finir sa phrase. Respirez. Ensuite, reformulez ce qu'il vient de dire avec vos propres mots : « Si je comprends bien, tu te sens blessé parce que... ». Vous verrez que 80% des conflits se calment instantanément quand la personne se sent réellement écoutée.</p>" },
+    { id: 2, cat: "Psychologie", titre: "Comprendre ses émotions", court: "Une émotion n'est ni bonne ni mauvaise : c'est une information.", long: "<p>La colère n'est pas 'méchante', la tristesse n'est pas 'une faiblesse'. Ce sont des signaux d'alarme. La colère signale une limite qui a été franchie. La tristesse signale un besoin de réconfort.</p><p>Au lieu de subir vos émotions, apprenez à les nommer : « Je ressens de la frustration en ce moment ». Nommer une émotion réduit immédiatement son intensité dans le cerveau. C'est la base de l'intelligence émotionnelle.</p>" },
+    { id: 3, cat: "Vie de couple", titre: "Les petites habitudes", court: "L'amour durable ne vit pas dans les grandes déclarations.", long: "<p>Les films nous font croire que l'amour se prouve avec des fleurs géantes. La réalité est différente. L'amour durable se joue dans le quotidien.</p><p>Un café préparé le matin sans qu'on l'ait demandé. Un message bienveillant à midi. Une main tenue dans la rue. C'est la répétition de ces petites attentions qui construit un socle solide sur lequel le couple peut traverser les tempêtes.</p>" },
+    { id: 4, cat: "Fidélité", titre: "La transparence totale", court: "Dire la vérité nourrit la confiance sur la durée.", long: "<p>La fidélité n'est pas seulement physique. Elle est aussi mentale et émotionnelle. Dire la vérité, ne pas cacher des choses anodines, ne pas mentir sur ses intentions, c'est ce qui crée une confiance aveugle.</p><p>La confiance met des années à se construire, mais une seconde à se briser. Si vous voulez une relation solide, soyez une personne dont la parole a une valeur absolue.</p>" },
+    { id: 5, cat: "Romantisme", titre: "Les surprises spontanées", court: "Une fleur un mardi vaut mieux qu'un bouquet le 14 février.", long: "<p>Le romantisme programmé (Saint-Valentin, anniversaires) est une obligation sociale. Le vrai romantisme est un choix spontané. Une fleur achetée un mardi après-midi, sans raison, a un impact émotionnel beaucoup plus fort.</p><p>Pourquoi ? Parce que cela prouve à l'autre qu'il était dans vos pensées de manière inattendue. Le romantisme, c'est prouver à l'autre : « Je te choisis aujourd'hui, pas parce que c'est obligé, mais parce que je t'aime ».</p>" },
+    { id: 6, cat: "Communication", titre: "Utiliser le 'Je'", court: "Dis 'je me sens blessé' plutôt que 'tu es méchant'.", long: "<p>Quand on utilise le 'Tu', on accuse. « Tu ne fais jamais d'efforts ». Le cerveau de l'autre se met immédiatement en mode défense et la conversation devient un combat.</p><p>Utilisez le 'Je'. « Je me sens seul quand on ne passe pas de temps ensemble ». Le 'Je' exprime votre ressenti sans attaquer l'autre. L'autre peut alors entendre votre souffrance au lieu de se défendre.</p>" },
+    { id: 7, cat: "Psychologie", titre: "Les 5 langages de l'amour", court: "Chacun exprime l'amour à sa manière.", long: "<p>Nous n'exprimons pas tous l'amour de la même façon. Certains offrent des cadeaux, d'autres ont besoin de temps de qualité, de paroles valorisantes, de services rendus, ou de contact physique.</p><p>Souvent, on donne ce qu'on aimerait recevoir, et on se sent mal aimé parce que l'autre donne autre chose. Parlez-en ! Découvrez le langage de votre partenaire et apprenez à parler le sien.</p>" },
+    { id: 8, cat: "Vie de couple", titre: "Gérer les désaccords", court: "Critique le comportement, jamais la personne.", long: "<p>Deux personnes qui s'aiment ne sont pas d'accord sur tout, et c'est normal. Le but n'est pas d'éviter les conflits, mais de les traverser ensemble.</p><p>Règle d'or : attaquez le problème, pas la personne. Ne dites pas « Tu es irresponsable », dites « Le fait de ne pas payer cette facture m'a fait peur, on peut en parler ? ». Vous êtes dans le même camp.</p>" },
+    { id: 9, cat: "Romantisme", titre: "L'écriture manuscrite", court: "Les mots écrits restent pour toujours.", long: "<p>À l'ère des SMS, une lettre écrite à la main a une valeur inestimable. Écrire demande du temps, de l'attention, et le résultat est physique.</p><p>Prenez une feuille. Écrivez à votre partenaire pourquoi vous l'aimez. Les mots écrits se relisent, se gardent, et peuvent durer toute une vie. C'est un cadeau immatériel mais inoubliable.</p>" },
+    { id: 10, cat: "Fidélité", titre: "Respecter les limites", court: "Parlez de vos limites avant que les problèmes n'arrivent.", long: "<p>La fidélité est un concept différent pour chacun. Pour certains, avoir un repas privé avec une personne du sexe opposé est de la tromperie. Pour d'autres, c'est anodin.</p><p>Ne devinez pas. Parlez-en à froid. Quelles sont vos limites ? Qu'est-ce qui vous blesse ? Mettre les règles au clair dès le départ évite 90% des trahisons involontaires.</p>" }
+    // POUR AJOUTER PLUS DE CONSEILS : Copie le bloc ci-dessus et modifie-le. (Attention à la virgule à la fin).
   ];
 
-  // 2. DONNÉES BLOG
-  const blogs = [
-    { cat: "Psychologie", titre: "La communication non-violente", txt: "Découvrez comment désamorcer une dispute en 4 étapes simples et transformez vos conflits en rapprochement." },
-    { cat: "Communication", titre: "Le silence qui blesse", txt: "Le silence punitif est une violence psychologique. Apprenez à faire une vraie pause sans blesser l'autre." },
-    { cat: "Réflexions", titre: "L'amour de soi d'abord", txt: "On ne peut pas donner ce qu'on n'a pas. Pourquoi apprendre à s'aimer est la base pour aimer quelqu'un d'autre." }
+  // ==========================================
+  // BASE DE DONNÉES DES ARTICLES (4 exemples)
+  // ==========================================
+  const dataArticles = [
+    { id: 1, cat: "Psychologie", titre: "La communication non-violente", court: "Découvrez comment désamorcer une dispute en 4 étapes simples.", long: "<p>Dans toute relation, les conflits sont inévitables. La différence entre un couple qui dure et un couple qui se brise réside dans la <strong>manière</strong> de gérer ces désaccords.</p><h4>1. L'Observation</h4><p>Au lieu de dire « Tu es toujours en retard », décrivez les faits : « Quand tu es arrivé 30 minutes après l'heure... ».</p><h4>2. Le Sentiment</h4><p>Exprimez ce que vous avez ressenti : « ...je me suis senti anxieux. »</p><h4>3. Le Besoin</h4><p>« Parce que j'ai besoin de me sentir important dans notre couple. »</p><h4>4. La Demande</h4><p>Terminez par une demande claire : « Serais-tu d'accord pour m'envoyer un message si tu vois que tu vas être en retard ? »</p>" },
+    { id: 2, cat: "Communication", titre: "Pourquoi le silence fait plus de mal que les mots", court: "Le 'silent treatment' est une arme destructrice.", long: "<p>Il y a une grande différence entre prendre du recul pour se calmer et bouder pour punir l'autre.</p><h4>L'impact du silence</h4><p>Quand vous cessez de parler sans explication, votre partenaire se sent rejeté, abandonné, et développe de l'anxiété.</p><h4>La pause saine</h4><p>Dites-le : « Je suis trop en colère pour être constructif. J'ai besoin de 30 minutes. Je t'aime, et je reviens vers toi après. » Cette phrase pose une limite et rassure l'autre.</p>" },
+    { id: 3, cat: "Réflexions", titre: "L'amour de soi : la base de tout", court: "On ne peut pas donner ce qu'on n'a pas.", long: "<p>On cherche souvent en l'autre la complétude que l'on ne trouve pas en nous-mêmes. C'est le piège de la 'moitié d'orange'.</p><p>Une relation saine, ce n'est pas deux moitiés qui s'assemblent, c'est deux personnes entières qui choisissent de marcher ensemble.</p><h4>S'aimer pour mieux aimer</h4><p>Quand vous vous sentez bien seul, vous ne restez plus dans une relation toxique par peur du vide.</p>" },
+    { id: 4, cat: "Vie de couple", titre: "L'importance du temps de qualité", court: "Une heure sans écran vaut plus que 10 heures avec.", long: "<p>Vous pouvez passer une journée entière à côté de votre partenaire et pourtant ne pas être ensemble. Si vous êtes sur vos téléphones, vous n'êtes pas en connexion.</p><p>Un couple a besoin de temps de qualité : un moment sans écran, sans travail, où vous vous regardez et discutez vraiment. Une heure par semaine de vraie présence vaut plus que 10 heures de présence distraite.</p>" }
+    // POUR AJOUTER PLUS D'ARTICLES : Copie le bloc ci-dessus.
   ];
 
-  // 3. DONNÉES CITATIONS
-  const quotes = [
-    { txt: "Aimer, ce n'est pas regarder l'un vers l'autre, c'est regarder ensemble dans la même direction.", auteur: "Saint-Exupéry" },
-    { txt: "L'amour n'est pas une faiblesse, c'est une responsabilité.", auteur: "Danny RT" },
-    { txt: "La confiance est le socle invisible sur lequel tout amour repose.", auteur: "Danny RT" },
-    { txt: "On ne possède pas quelqu'un qu'on aime : on l'accompagne.", auteur: "Danny RT" },
-    { txt: "Aimer, c'est choisir chaque jour la même personne.", auteur: "Danny RT" },
-    { txt: "La vie est un sommeil, l'amour en est le rêve.", auteur: "Alfred de Musset" }
-  ];
-
-  // FONCTIONS D'AFFICHAGE
-  function afficherConseils() {
-    const container = document.getElementById('advice-grid');
-    advices.forEach(item => {
-      container.innerHTML += `
-        <div class="card">
-          <span class="card-meta">${item.cat}</span>
-          <h3>${item.titre}</h3>
-          <p>${item.txt}</p>
-        </div>
-      `;
-    });
-  }
-
-  function afficherBlog() {
-    const container = document.getElementById('blog-grid');
-    blogs.forEach(item => {
-      container.innerHTML += `
-        <div class="card">
-          <span class="card-meta">${item.cat}</span>
-          <h3>${item.titre}</h3>
-          <p>${item.txt}</p>
-          <br>
-          <a href="#" style="font-weight:bold; color:#e63946;">Lire l'article →</a>
-        </div>
-      `;
-    });
-  }
-
-  function afficherCitations() {
-    const container = document.getElementById('quotes-grid');
-    quotes.forEach(item => {
-      container.innerHTML += `
-        <div class="quote">
-          « ${item.txt} »
-          <span class="quote-author">— ${item.auteur}</span>
-        </div>
-      `;
-    });
-  }
-
-  // LANCEMENT
-  document.addEventListener('DOMContentLoaded', () => {
-    afficherConseils();
-    afficherBlog();
-    afficherCitations();
-  });
-</script>
-
-</body>
-  </html>
+  // ==========================================
+  // BASE DE DONNÉES DES CITATIONS (8 exemples)
+  // ==========================================
+  const dataQuotes = [
+    { id: 1, cat: "Romantisme", txt: "Aimer, ce n'est pas regarder l'un vers l'autre, c'est regarder ensemble dans la même direction.", auteur: "Antoine de Saint-Exupéry" },
+    { id: 2, cat: "Amour", txt: "L'amour n'est pas une faiblesse, c'est une responsabilité.", auteur: "Danny RT" },
+    { id: 3, cat: "Fidélité", txt: "La confiance est le socle invisible sur lequel tout amour repose.", auteur: "Danny RT" },
+    { id: 4, cat: "Sagesse", txt: "On ne possède pas quelqu'un qu'on aime : on l'accompagne.", auteur: "Danny RT" },
+    { id: 5, cat: "Amour", txt: "Le plus beau cadeau que tu puisses offrir à quelqu'un, c'est ta présence.", auteur: "Danny RT" },
+    { id: 6, cat: "Romantisme", txt: "Aimer, c'est choisir chaque jour la même personne.", auteur: "Danny RT" },
+    { id: 7, cat: "Sagesse", txt: "Le temps ne guérit pas les blessures, il apprend à vivre avec.", auteur: "Danny RT" },
+    { id: 8, cat: "Rom
