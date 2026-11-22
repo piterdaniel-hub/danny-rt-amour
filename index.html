@@ -177,6 +177,21 @@
   .contact-card.facebook p{color:#1877F2}
   .contact-card.gmail p{color:#EA4335}
 
+  /* Floating WhatsApp Button */
+  .floating-wa {
+    position: fixed; bottom: 24px; right: 24px; z-index: 99;
+    background-color: #25D366; color: white;
+    width: 60px; height: 60px; border-radius: 50%;
+    display: flex; justify-content: center; align-items: center;
+    font-size: 32px; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .floating-wa:hover {
+    transform: scale(1.1) translateY(-3px);
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+    color: white;
+  }
+
   /* Footer */
   footer{
     border-top:1px solid var(--border); padding:36px 20px;
@@ -213,6 +228,7 @@
     .hero{padding:60px 20px 50px}
     .section{padding:50px 0}
     .values-inner{gap:20px;font-size:.72rem}
+    .floating-wa { width: 54px; height: 54px; font-size: 28px; bottom: 16px; right: 16px; }
   }
   @media (max-width:480px){
     .search-box input{width:100px;padding-left:28px;font-size:.8rem}
@@ -224,6 +240,9 @@
 </style>
 </head>
 <body>
+
+<!-- BOUTON WHATSAPP FLOTTANT -->
+<a href="https://wa.me/243898560667?text=Bonjour%20Danny%20RT%20Amour%2C%20je%20viens%20de%20ton%20site%20!" class="floating-wa" target="_blank" rel="noopener noreferrer" aria-label="Contactez-moi sur WhatsApp">💬</a>
 
 <!-- HEADER -->
 <header class="site-header">
@@ -429,24 +448,4 @@
       <div class="quotes-grid">
         <div class="quote">
           « Aimer, ce n'est pas regarder l'un vers l'autre, c'est regarder ensemble dans la même direction. »
-          <span class="quote-author">— Antoine de Saint-Exupéry</span>
-        </div>
-        <div class="quote">
-          « L'amour n'est pas une faiblesse, c'est une responsabilité. »
-          <span class="quote-author">— Danny RT</span>
-        </div>
-        <div class="quote">
-          « La confiance est le socle invisible sur lequel tout amour repose. »
-          <span class="quote-author">— Danny RT</span>
-        </div>
-        <div class="quote">
-          « On ne possède pas quelqu'un qu'on aime : on l'accompagne. »
-          <span class="quote-author">— Danny RT</span>
-        </div>
-        <div class="quote">
-          « Le plus beau cadeau que tu puisses offrir à quelqu'un, c'est ta présence. »
-          <span class="quote-author">— Danny RT</span>
-        </div>
-        <div class="quote">
-          « Aimer, c'est choisir chaque jour la même personne. »
-     
+        
